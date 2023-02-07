@@ -143,39 +143,49 @@ const ScrollTriggerWrapper = forwardRef((props, ref) => {
         const _property = Object.getOwnPropertyNames(animation);
 
         //Create Array for Match Media
-        const stMatchMedia = {};
+        const stMatchMedia = []
 
         // fill animation
         _property.forEach((p, id) => {
           // push animation to object
-          stMatchMedia[`${p}`] = function () {
-            //run apply animation function
 
-            currentTL[`${p}`] = applyAnimation({
-              anim: animation[p],
-              ss: tlSaveStyle,
-            });
+          const pushData = {
+            media: p, function: function () {
+              //run apply animation function
 
-            return () => {
-              tlSaveStyle.forEach((ss) => {
-                gsap.set(ss, { clearProps: true });
+              currentTL[`${p}`] = applyAnimation({
+                anim: animation[p],
+                ss: tlSaveStyle,
               });
 
-              ScrollTrigger.refresh(true);
-              //Kill All Timeline during breakpoint
-              if (currentTL[`${p}`])
-                currentTL[`${p}`].forEach((eachTL) => {
-                  eachTL.pause(0).kill();
-                  eachTL.clear();
+              return () => {
+                tlSaveStyle.forEach((ss) => {
+                  gsap.set(ss, { clearProps: true });
                 });
 
-              delete currentTL[`${p}`];
-            };
-          };
+                ScrollTrigger.refresh(true);
+                //Kill All Timeline during breakpoint
+                if (currentTL[`${p}`])
+                  currentTL[`${p}`].forEach((eachTL) => {
+                    eachTL.pause(0).kill();
+                    eachTL.clear();
+                  });
+
+                delete currentTL[`${p}`];
+              };
+            }
+          }
+          stMatchMedia.push(pushData);
         });
 
         // RUN Scrolltrigger MatchMedia
-        ScrollTrigger.matchMedia(stMatchMedia);
+        // ScrollTrigger.matchMedia(stMatchMedia);
+
+        let mm = gsap.matchMedia();
+
+        stMatchMedia.forEach((mediaQuery) => {
+          mm.add(mediaQuery.media, mediaQuery.function)
+        })
 
         // Set ScrollTrigger Save Styles
         let saveStyles = ``;
