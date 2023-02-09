@@ -143,14 +143,15 @@ const ScrollTriggerWrapper = forwardRef((props, ref) => {
         const _property = Object.getOwnPropertyNames(animation);
 
         //Create Array for Match Media
-        const stMatchMedia = []
+        const stMatchMedia = [];
 
         // fill animation
         _property.forEach((p, id) => {
           // push animation to object
 
           const pushData = {
-            media: p, function: function () {
+            media: p,
+            function: function () {
               //run apply animation function
 
               currentTL[`${p}`] = applyAnimation({
@@ -173,8 +174,8 @@ const ScrollTriggerWrapper = forwardRef((props, ref) => {
 
                 delete currentTL[`${p}`];
               };
-            }
-          }
+            },
+          };
           stMatchMedia.push(pushData);
         });
 
@@ -184,8 +185,8 @@ const ScrollTriggerWrapper = forwardRef((props, ref) => {
         let mm = gsap.matchMedia();
 
         stMatchMedia.forEach((mediaQuery) => {
-          mm.add(mediaQuery.media, mediaQuery.function)
-        })
+          mm.add(mediaQuery.media, mediaQuery.function);
+        });
 
         // Set ScrollTrigger Save Styles
         let saveStyles = ``;
@@ -208,6 +209,13 @@ const ScrollTriggerWrapper = forwardRef((props, ref) => {
     };
   }, [scrollInitState, animation]);
 
+  useEffect(() => {
+    ScrollTrigger.normalizeScroll(true);
+    ScrollTrigger.config({
+      limitCallbacks: true,
+      ignoreMobileResize: true,
+    });
+  }, []);
   return <>{children}</>;
 });
 
