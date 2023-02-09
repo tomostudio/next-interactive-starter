@@ -215,6 +215,13 @@ const ScrollTriggerWrapper = forwardRef((props, ref) => {
       limitCallbacks: true,
       ignoreMobileResize: true,
     });
+    ScrollTrigger.enable();
+    return () => {
+      ScrollTrigger.disable();
+      ScrollTrigger.killAll();
+      ScrollTrigger.clearScrollMemory();
+      ScrollTrigger.clearMatchMedia();
+    };
   }, []);
   return <>{children}</>;
 });
