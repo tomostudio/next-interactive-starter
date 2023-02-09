@@ -32,7 +32,7 @@ const ScrollTriggerWrapper = forwardRef((props, ref) => {
       ScrollTrigger.scrollerProxy(scrollerQuery, {
         scrollTop(value) {
           return arguments.length
-            ? scroll.scrollTo(value, 0, 0)
+            ? scroll.scrollTo(value, { duration: 0, disableLerp: true })
             : scroll.scroll.instance.scroll.y;
         }, // we don't have to define a scrollLeft because we're only scrolling vertically.
         getBoundingClientRect() {
