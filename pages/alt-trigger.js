@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useLayoutEffect } from 'react';
 import Layout from '@/components/layout';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
@@ -9,10 +9,13 @@ import PushScrollGlobal from '@/helpers/globalscroll';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { NextSeo } from 'next-seo';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import ScrollTriggerWrapper from '@/components/scrolltrigger.js';
 import { applyAnimation } from '@/components/scrollTriggerAnim';
+
+// NEW
+
+import { gsap } from 'gsap/dist/gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
@@ -29,7 +32,7 @@ export default function Home() {
           scrollTrigger: {
             id: id,
             trigger: '.scrollsection', // which page section will be tracked as the scroll trigger
-            // scroller: '#scroll-container', // id of scroll container
+            scroller: '#scroll-container', // id of scroll container
             scrub: true,
             start: 'top 0%',
             end: '+=100%',
@@ -71,7 +74,7 @@ export default function Home() {
           scrollTrigger: {
             id: id,
             trigger: '.scrollsection', // which page section will be tracked as the scroll trigger
-            // scroller: '#scroll-container', // id of scroll container
+            scroller: '#scroll-container', // id of scroll container
             scrub: true,
             start: 'top 0%',
             end: '+=100%',
@@ -107,35 +110,42 @@ export default function Home() {
   };
 
   useEffect(() => {
-    window.addEventListener('LocoCall', (e) => {
-      console.log(' triggered', e.detail);
-    });
-
     let ctx = gsap.context(() => {
+      console.log(gsap)
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: 'si01',
+          trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
+          // scroller: '#scroll-container', // id of scroll container if using LOCOMOTIVE
+          scrub: 1,
+          start: 'top 0%',
+          end: '+=100%',
+          markers: true,
+        },
+      });
+
+      const elem = document.querySelector('.scrollsection .line');
+
+      tl.set(elem, { background: 'rgba(253, 230, 138, 1)' });
+      tl.to(
+        elem,
+        {
+          scaleX: 0,
+          transformOrigin: 'left center',
+          background: 'rgba(253, 230, 138, 0)',
+          ease: 'none',
+          duration: 1,
+        },
+        0
+      );
     });
-    return () => {
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
     <Layout>
       <NextSeo title='Home' />
 
-      {/* <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05 }}
-        containerRef={containerRef}
-        watch={[]}
-      >
-        <PushScrollGlobal /> */}
-      {/* <div
-          data-scroll-container
-          ref={containerRef}
-          id='scroll-container'
-          className='test test2 test3'
-        > */}
-      {/* <div data-scroll-section> */}
-      <ScrollTriggerWrapper animation={animationObj} locomotive={false}>
       <Header />
       <LazyMotion features={domAnimation}>
         <m.div initial='initial' animate='enter' exit='exit'>
@@ -338,10 +348,6 @@ export default function Home() {
           </m.div>
         </m.div>
       </LazyMotion>
-      </ScrollTriggerWrapper>
-      {/* </div>
-        </div>
-      </LocomotiveScrollProvider> */}
     </Layout>
   );
 }
