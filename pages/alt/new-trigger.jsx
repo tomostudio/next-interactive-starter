@@ -166,7 +166,7 @@ export default function Home() {
             <Container>
               <article>
                 <h1 className='font-bold text-2xl md:text-3xl xl:text-4xl mb-4'>
-                  Next x Tailwind x Motion x Locomotive
+                 SCROLL TRIGGER NO LOCOMOTIVE NEW TRIGGER
                 </h1>
                 <div className='content max-w-3xl mb-4'>
                   <h2>Some example content</h2>

@@ -111,10 +111,6 @@ export default function Home() {
       console.log(' triggered', e.detail);
     });
 
-    let ctx = gsap.context(() => {});
-    return () => {
-      ctx.revert();
-    };
   }, []);
 
   return (
@@ -122,7 +118,7 @@ export default function Home() {
       <NextSeo title='Home' />
 
       <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05 }}
+        options={{ smooth: false, lerp: 0.05 }}
         containerRef={containerRef}
         watch={[]}
       >
@@ -155,7 +151,7 @@ export default function Home() {
                     <Container>
                       <article>
                         <h1 className='font-bold text-2xl md:text-3xl xl:text-4xl mb-4'>
-                          Next x Tailwind x Motion x Locomotive
+                          LOCOMOTIVE WITH SCROLL TRIGGER NO SMOOTH
                         </h1>
                         <div className='content max-w-3xl mb-4'>
                           <h2>Some example content</h2>

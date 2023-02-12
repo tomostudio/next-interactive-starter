@@ -8,55 +8,81 @@ import isFunction from '@/helpers/isFunction';
 import React from 'react';
 
 const ScrollTriggerWrapper = forwardRef((props, ref) => {
-  // const { scroll } = useLocomotiveScroll();
-  const { children, animation } = props;
+  const { scroll } = useLocomotiveScroll();
+  const { children, animation, locomotive } = props;
   const [scrollInitState, setScrollInit] = useState(false);
 
   // Initiate Scrolltrigger
   gsap.registerPlugin(ScrollTrigger);
 
   // init scroll
-  // useEffect(() => {
-  //   if (scroll && !scrollInitState) {
-  //     setScrollInit(true);
+  if (locomotive)
+    useEffect(() => {
+      if (scroll && !scrollInitState) {
+        setScrollInit(true);
 
-  //     // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-  //     scroll.on('scroll', ScrollTrigger.update);
+        // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+        scroll.on('scroll', ScrollTrigger.update);
 
-  //     let scrollerQuery = `#${scroll.el.id}`;
-  //     if (!scrollerQuery) {
-  //       scrollerQuery = `.${scroll.el.className.replace(/ /g, '.')}`;
-  //     }
+        let scrollerQuery = `#${scroll.el.id}`;
+        if (!scrollerQuery) {
+          scrollerQuery = `.${scroll.el.className.replace(/ /g, '.')}`;
+        }
 
-  //     // INIT SCROLLTRIGGER
-  //     ScrollTrigger.scrollerProxy(scrollerQuery, {
-  //       scrollTop(value) {
-  //         return arguments.length
-  //           ? scroll.scrollTo(value, { duration: 0, disableLerp: true })
-  //           : scroll.scroll.instance.scroll.y;
-  //       }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-  //       getBoundingClientRect() {
-  //         return {
-  //           top: 0,
-  //           left: 0,
-  //           width: window.innerWidth,
-  //           height: window.innerHeight,
-  //         };
-  //       },
-  //       // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-  //       pinType: document.querySelector(scrollerQuery).style.transform
-  //         ? 'transform'
-  //         : 'fixed',
-  //     });
-  //   }
-  //   return () => {
-  //     setScrollInit(false);
-  //   };
-  // }, [scroll]);
+        // INIT SCROLLTRIGGER
+        ScrollTrigger.scrollerProxy(scrollerQuery, {
+          scrollTop(value) {
+            return arguments.length
+              ? scroll.scrollTo(value, { duration: 0, disableLerp: true })
+              : scroll.scroll.instance.scroll.y;
+          }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+          getBoundingClientRect() {
+            return {
+              top: 0,
+              left: 0,
+              width: window.innerWidth,
+              height: window.innerHeight,
+            };
+          },
+          // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+          pinType: document.querySelector(scrollerQuery).style.transform
+            ? 'transform'
+            : 'fixed',
+        });
+      }
+      return () => {
+        setScrollInit(false);
+      };
+    }, [scroll]);
 
   // init timeilne / animation
   useEffect(() => {
     let ctx = gsap.context(() => {
+      const resetAnimation = () => {
+        //Get All Timeline and Clear
+        gsap.globalTimeline.clear();
+
+        if (currentTL) {
+          Object.entries(currentTL).forEach(([key, tl]) => {
+            // go through each timeline.
+            tl.forEach((eachTL) => {
+              // kill timeline
+              eachTL.pause(0).kill(true);
+            });
+            // delete cleared object
+            delete currentTL[key];
+          });
+        }
+
+        //Get All Scroll Trigger and Clear
+        let allTrigger = ScrollTrigger.getAll();
+        allTrigger.forEach((trigger) => {
+          trigger.kill(true);
+        });
+
+        //Clear Array
+        tlSaveStyle = [];
+      };
       let tlSaveStyle = [];
       let currentTL = {};
 
@@ -113,7 +139,6 @@ const ScrollTriggerWrapper = forwardRef((props, ref) => {
         }
       };
 
-      console.log(animation);
       if (animation instanceof Object && !(animation instanceof Array)) {
         const _property = Object.getOwnPropertyNames(animation);
 
@@ -164,14 +189,14 @@ const ScrollTriggerWrapper = forwardRef((props, ref) => {
         });
       } else {
         // Fill Animation normally, no breakpoints
-        // resetAnimation();
+        resetAnimation();
         currentTL[`global`] = applyAnimation({ anim: animation });
       }
     });
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [scrollInitState, animation]);
 
   return <>{children}</>;
 });
