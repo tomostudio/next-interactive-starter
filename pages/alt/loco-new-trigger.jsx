@@ -29,7 +29,13 @@ export default function Home() {
       <NextSeo title='Home' />
 
       <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05 }}
+        options={{
+          smooth: true,
+          lerp: 0.05,
+          mobile: {
+            smooth: false,
+          },
+        }}
         containerRef={containerRef}
         watch={[]}
       >
