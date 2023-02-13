@@ -103,6 +103,8 @@ export default function Home() {
     ],
   };
 
+  gsap.registerPlugin(ScrollTrigger);
+  
   useEffect(() => {
     const animation = applyAnimation({ animation: animationObj, gsap: gsap });
     return () => animation.revert();

@@ -1,7 +1,6 @@
 import { gsap } from 'gsap/dist/gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-const applyAnimation = ({ animation }) => {
-  gsap.registerPlugin(ScrollTrigger);
+const applyAnimation = ({ animation, gsap: gsap }) => {
   const applyAnimation = ({ anim, tl = [], ss }) => {
     // Anim = animation
     // tl = timeline to push
