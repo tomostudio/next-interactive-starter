@@ -30,7 +30,7 @@ export default function Home() {
 
       <LocomotiveScrollProvider
         options={{
-          smooth: true,
+          smooth: false,
           lerp: 0.05,
           mobile: {
             smooth: false,
