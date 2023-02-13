@@ -298,7 +298,7 @@ const LocomotiveTrigger = () => {
         scrollTop(value) {
           if (scroll) {
             return arguments.length
-              ? scroll.scrollTo(value, 0, 0)
+              ? scroll.scrollTo(value, { duration: 0, disableLerp: true })
               : scroll.scroll.instance.scroll.y;
           }
           return null;
@@ -306,7 +306,7 @@ const LocomotiveTrigger = () => {
         scrollLeft(value) {
           if (scroll) {
             return arguments.length
-              ? scroll.scrollTo(value, 0, 0)
+              ? scroll.scrollTo(value, { duration: 0, disableLerp: true })
               : scroll.scroll.instance.scroll.x;
           }
           return null;
@@ -365,8 +365,6 @@ const LocomotiveTrigger = () => {
           // custom cleanup code here (runs when it STOPS matching)
         };
       });
-
-      console.log(`#${scroll.el.id}`);
       mm.add('(max-width: 750px)', () => {
         const tl = gsap.timeline({
           scrollTrigger: {
