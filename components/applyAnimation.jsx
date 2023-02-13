@@ -1,6 +1,7 @@
 import { gsap } from 'gsap/dist/gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-const applyAnimation = ({ animation, gsap: gsap }) => {
+const applyAnimation = ({ animation }) => {
+  gsap.registerPlugin(ScrollTrigger);
   const applyAnimation = ({ anim }) => {
     // Anim = animation
     // tl = timeline to push
@@ -13,14 +14,11 @@ const applyAnimation = ({ animation, gsap: gsap }) => {
         anim.forEach((each_anim) => {
           // push each animation into array.
           // pushing animation = running the animation.
-          console.log(each_anim);
           const { settings, animation } = each_anim();
 
           let _tl = gsap.timeline(settings);
           animation.forEach((a) => {
             const k = Object.keys(a)[0];
-            console.log(a, k );
-            console.log(...a[k]);
             if (k === 'to') {
               _tl.to(...a[k]);
             } else if (k === 'from') {
@@ -68,7 +66,6 @@ const applyAnimation = ({ animation, gsap: gsap }) => {
     // fill animation
     _property.forEach((p, id) => {
       // push animation to object
-      console.log(p);
       const pushData = {
         media: p,
         function: () => {

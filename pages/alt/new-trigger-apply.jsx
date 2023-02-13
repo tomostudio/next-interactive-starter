@@ -26,7 +26,7 @@ export default function Home() {
           scrollTrigger: {
             id: id,
             trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
-            scrub: 1,
+            scrub: .5,
             start: 'top 0%',
             end: '+=100%',
             markers: true,
@@ -68,7 +68,7 @@ export default function Home() {
           scrollTrigger: {
             id: id,
             trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
-            scrub: 1,
+            scrub: .5,
             start: 'top 0%',
             end: '+=100%',
             markers: true,
@@ -103,7 +103,6 @@ export default function Home() {
     ],
   };
 
-  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
     const animation = applyAnimation({ animation: animationObj, gsap: gsap });
