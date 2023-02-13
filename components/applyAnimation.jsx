@@ -1,10 +1,12 @@
 import { gsap } from 'gsap/dist/gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 const applyAnimation = ({ animation, gsap: gsap }) => {
-  const applyAnimation = ({ anim, tl = [], ss }) => {
+  const applyAnimation = ({ anim }) => {
     // Anim = animation
     // tl = timeline to push
     // ss = save style
+
+    let tl = [];
     if (anim) {
       // check if there are multiple animation
       if (anim instanceof Array) {
@@ -14,39 +16,41 @@ const applyAnimation = ({ animation, gsap: gsap }) => {
           // pushing animation = running the animation.
           const { settings, animation } = each_anim();
 
-          tl.push(gsap.timeline(settings));
+          let _tl = gsap.timeline(settings);
           animation.forEach((a) => {
             const k = Object.keys(a)[0];
             if (k === 'to') {
-              tl.at(-1).to(...a[k]);
+              _tl.to(...a[k]);
             } else if (k === 'from') {
-              tl.at(-1).from(...a[k]);
+              _tl.from(...a[k]);
             } else if (k === 'set') {
-              tl.at(-1).set(...a[k]);
+              _tl.set(...a[k]);
             } else if (k === 'call') {
-              tl.at(-1).call(a[k]);
+              _tl.call(a[k]);
             }
           });
+
+          tl.push(_tl);
         });
       }
-
-      return tl;
     } else if (isFunction(anim)) {
       // pull object
       const { settings, animation } = anim();
 
       // push to array
-      tl.push(gsap.timeline(settings));
+      let _tl = gsap.timeline(settings);
 
       animation.forEach((a) => {
         const k = Object.keys(a)[0];
         if (k === 'to') {
-          tl.at(-1).to(...a[k]);
+          _tl.to(...a[k]);
         } else if (k === 'from') {
-          tl.at(-1).from(...a[k]);
+          _tl.from(...a[k]);
         }
       });
+      tl.push(_tl);
     }
+    return tl;
   };
 
   if (animation instanceof Object && !(animation instanceof Array)) {
