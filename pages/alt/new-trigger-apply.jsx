@@ -16,12 +16,11 @@ import { gsap } from 'gsap/dist/gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 export default function Home() {
-
   const animationObj = {
     '(min-width: 751px)': [
       () => {
         const id = 'si01';
-        const elem = '.scrollsection .line';
+        const elem = document.querySelector('.scrollsection .line');
 
         const settings = {
           scrollTrigger: {
@@ -63,7 +62,7 @@ export default function Home() {
     '(max-width: 750px)': [
       () => {
         const id = 'si02';
-        const elem = '.scrollsection .line';
+        const elem = document.querySelector('.scrollsection .line');
 
         const settings = {
           scrollTrigger: {
