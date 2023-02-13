@@ -28,7 +28,7 @@ export default function Home() {
         const settings = {
           scrollTrigger: {
             id: id,
-            trigger: '.scrollsection', // which page section will be tracked as the scroll trigger
+            trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
             scroller: '#scroll-container', // id of scroll container
             scrub: true,
             start: 'top 0%',
@@ -70,7 +70,7 @@ export default function Home() {
         const settings = {
           scrollTrigger: {
             id: id,
-            trigger: '.scrollsection', // which page section will be tracked as the scroll trigger
+            trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
             scroller: '#scroll-container', // id of scroll container
             scrub: true,
             start: 'top 0%',
@@ -113,6 +113,9 @@ export default function Home() {
 
     let ctx = gsap.context(() => {});
     return () => {
+      window.removeEventListener('LocoCall', (e) => {
+        console.log(' triggered', e.detail);
+      });
       ctx.revert();
     };
   }, []);

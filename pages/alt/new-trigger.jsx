@@ -17,7 +17,9 @@ export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    let mm = gsap.matchMedia();
+
+    mm.add('(min-width: 751px)', () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           id: 'si01',
@@ -43,8 +45,43 @@ export default function Home() {
         },
         0
       );
+      return () => {
+        // optional
+        // custom cleanup code here (runs when it STOPS matching)
+      };
     });
-    return () => ctx.revert();
+    mm.add('(max-width: 750px)', () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: 'si02',
+          trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
+          scrub: 1,
+          start: 'top 0%',
+          end: '+=100%',
+          markers: true,
+        },
+      });
+
+      const elem = document.querySelector('.scrollsection .line');
+
+      tl.set(elem, { background: 'rgba(253, 230, 138, 0)' });
+      tl.to(
+        elem,
+        {
+          scaleX: 0,
+          transformOrigin: 'left center',
+          background: 'rgba(253, 230, 138, 1)',
+          ease: 'none',
+          duration: 2,
+        },
+        0
+      );
+      return () => {
+        // optional
+        // custom cleanup code here (runs when it STOPS matching)
+      };
+    });
+    return () => mm.revert();
   }, []);
 
   return (
@@ -71,7 +108,7 @@ export default function Home() {
             <Container>
               <article>
                 <h1 className='font-bold text-2xl md:text-3xl xl:text-4xl mb-4'>
-                 SCROLL TRIGGER NO LOCOMOTIVE NEW TRIGGER
+                  SCROLL TRIGGER NO LOCOMOTIVE NEW TRIGGER
                 </h1>
                 <div className='content max-w-3xl mb-4'>
                   <h2>Some example content</h2>
