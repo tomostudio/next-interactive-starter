@@ -13,7 +13,7 @@ const applyAnimation = ({ animation }) => {
         anim.forEach((each_anim) => {
           // push each animation into array.
           // pushing animation = running the animation.
-          const { settings, elem, animation } = each_anim();
+          const { settings, animation } = each_anim();
 
           tl.push(gsap.timeline(settings));
           animation.forEach((a) => {
@@ -34,7 +34,7 @@ const applyAnimation = ({ animation }) => {
       return tl;
     } else if (isFunction(anim)) {
       // pull object
-      const { settings, elem, animation } = anim();
+      const { settings, animation } = anim();
 
       // push to array
       tl.push(gsap.timeline(settings));
@@ -52,7 +52,6 @@ const applyAnimation = ({ animation }) => {
 
   if (animation instanceof Object && !(animation instanceof Array)) {
     const _property = Object.getOwnPropertyNames(animation);
-    let currentTL = {};
 
     //Create Array for Match Media
     const stMatchMedia = [];
@@ -66,12 +65,11 @@ const applyAnimation = ({ animation }) => {
         function: function () {
           //run apply animation function
 
-          currentTL[`${p}`] = applyAnimation({
+          const tl = applyAnimation({
             anim: animation[p],
           });
 
-          return () => {
-          };
+          return () => {};
         },
       };
       stMatchMedia.push(pushData);
@@ -83,11 +81,11 @@ const applyAnimation = ({ animation }) => {
     stMatchMedia.forEach((mediaQuery) => {
       mm.add(mediaQuery.media, mediaQuery.function);
     });
+
     return mm;
   } else {
     let ctx = gsap.context(() => {
-      let currentTL = {};
-      currentTL[`global`] = applyAnimation({ anim: animation });
+      const tl = applyAnimation({ anim: animation });
     });
     return ctx;
   }

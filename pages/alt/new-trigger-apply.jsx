@@ -30,6 +30,7 @@ export default function Home() {
             scrub: true,
             start: 'top 0%',
             end: '+=100%',
+            markers: true,
             // onUpdate: (e) => { console.log('1', Math.round(e.progress * 100)) }
           },
         };
@@ -71,6 +72,7 @@ export default function Home() {
             scrub: true,
             start: 'top 0%',
             end: '+=100%',
+            markers: true,
             // onUpdate: (e) => { console.log('2', Math.round(e.progress * 100)) }
           },
         };
