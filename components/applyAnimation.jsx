@@ -19,6 +19,8 @@ const applyAnimation = ({ animation, gsap: gsap }) => {
           let _tl = gsap.timeline(settings);
           animation.forEach((a) => {
             const k = Object.keys(a)[0];
+            console.log(a, k );
+            console.log(...a[k]);
             if (k === 'to') {
               _tl.to(...a[k]);
             } else if (k === 'from') {
@@ -46,6 +48,10 @@ const applyAnimation = ({ animation, gsap: gsap }) => {
           _tl.to(...a[k]);
         } else if (k === 'from') {
           _tl.from(...a[k]);
+        } else if (k === 'set') {
+          _tl.set(...a[k]);
+        } else if (k === 'call') {
+          _tl.call(a[k]);
         }
       });
       tl.push(_tl);

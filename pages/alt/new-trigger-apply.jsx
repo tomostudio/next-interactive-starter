@@ -26,7 +26,7 @@ export default function Home() {
           scrollTrigger: {
             id: id,
             trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
-            scrub: true,
+            scrub: 1,
             start: 'top 0%',
             end: '+=100%',
             markers: true,
@@ -68,7 +68,7 @@ export default function Home() {
           scrollTrigger: {
             id: id,
             trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
-            scrub: true,
+            scrub: 1,
             start: 'top 0%',
             end: '+=100%',
             markers: true,
