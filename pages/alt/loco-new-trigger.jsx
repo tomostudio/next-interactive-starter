@@ -401,7 +401,7 @@ const LocomotiveTrigger = () => {
       });
     }
     return () => {
-      mm.revert();
+      if (init) mm.revert();
     };
   }, [scroll]);
 };
