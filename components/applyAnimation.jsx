@@ -16,9 +16,6 @@ const applyAnimation = ({ animation }) => {
           const { settings, elem, animation } = each_anim();
 
           tl.push(gsap.timeline(settings));
-
-          if (ss) ss.push(elem);
-
           animation.forEach((a) => {
             const k = Object.keys(a)[0];
             if (k === 'to') {
@@ -41,8 +38,6 @@ const applyAnimation = ({ animation }) => {
 
       // push to array
       tl.push(gsap.timeline(settings));
-
-      if (ss) ss.push(elem);
 
       animation.forEach((a) => {
         const k = Object.keys(a)[0];
@@ -76,15 +71,6 @@ const applyAnimation = ({ animation }) => {
           });
 
           return () => {
-            ScrollTrigger.refresh(true);
-            //Kill All Timeline during breakpoint
-            if (currentTL[`${p}`])
-              currentTL[`${p}`].forEach((eachTL) => {
-                eachTL.pause(0).kill();
-                eachTL.clear();
-              });
-
-            delete currentTL[`${p}`];
           };
         },
       };
