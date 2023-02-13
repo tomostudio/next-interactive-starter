@@ -121,20 +121,6 @@ export default function Home() {
   return (
     <Layout>
       <NextSeo title='Home' />
-
-      {/* <LocomotiveScrollProvider
-        options={{ smooth: true, lerp: 0.05 }}
-        containerRef={containerRef}
-        watch={[]}
-      >
-        <PushScrollGlobal /> */}
-      {/* <div
-          data-scroll-container
-          ref={containerRef}
-          id='scroll-container'
-          className='test test2 test3'
-        > */}
-      {/* <div data-scroll-section> */}
       <ScrollTriggerWrapper animation={animationObj} locomotive={false}>
       <Header />
       <LazyMotion features={domAnimation}>
@@ -339,9 +325,6 @@ export default function Home() {
         </m.div>
       </LazyMotion>
       </ScrollTriggerWrapper>
-      {/* </div>
-        </div>
-      </LocomotiveScrollProvider> */}
     </Layout>
   );
 }
