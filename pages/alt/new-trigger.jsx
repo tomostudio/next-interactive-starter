@@ -1,16 +1,12 @@
-import { useRef, useEffect, useLayoutEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import Layout from '@/components/layout';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Container from '@/components/container';
 import FancyLink from '@/components/fancyLink';
 import { fade } from '@/helpers/transitions';
-import PushScrollGlobal from '@/helpers/globalscroll';
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { NextSeo } from 'next-seo';
-import ScrollTriggerWrapper from '@/components/scrolltrigger.js';
-import { applyAnimation } from '@/components/scrollTriggerAnim';
 
 // NEW
 
@@ -20,103 +16,12 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
 
-  const containerRef = useRef(null);
-
-  const animationObj = {
-    '(min-width: 751px)': [
-      () => {
-        const id = 'si01';
-        const elem = '.scrollsection .line';
-
-        const settings = {
-          scrollTrigger: {
-            id: id,
-            trigger: '.scrollsection', // which page section will be tracked as the scroll trigger
-            scroller: '#scroll-container', // id of scroll container
-            scrub: true,
-            start: 'top 0%',
-            end: '+=100%',
-            // onUpdate: (e) => { console.log('1', Math.round(e.progress * 100)) }
-          },
-        };
-        const animation = [
-          {
-            set: [
-              elem,
-              {
-                background: 'rgba(253, 230, 138, 1)',
-              },
-            ],
-          },
-          {
-            to: [
-              elem,
-              {
-                scaleX: 0,
-                transformOrigin: 'left center',
-                background: 'rgba(253, 230, 138, 0)',
-                ease: 'none',
-                duration: 1,
-              },
-              0,
-            ],
-          },
-        ];
-        return { id, elem, settings, animation };
-      },
-    ],
-    '(max-width: 750px)': [
-      () => {
-        const id = 'si02';
-        const elem = '.scrollsection .line';
-
-        const settings = {
-          scrollTrigger: {
-            id: id,
-            trigger: '.scrollsection', // which page section will be tracked as the scroll trigger
-            scroller: '#scroll-container', // id of scroll container
-            scrub: true,
-            start: 'top 0%',
-            end: '+=100%',
-            // onUpdate: (e) => { console.log('2', Math.round(e.progress * 100)) }
-          },
-        };
-        const animation = [
-          {
-            set: [
-              elem,
-              {
-                background: 'rgba(253, 230, 138, 0)',
-              },
-            ],
-          },
-          {
-            to: [
-              elem,
-              {
-                scaleX: 0,
-                transformOrigin: 'left center',
-                background: 'rgba(253, 230, 138, 1)',
-                ease: 'none',
-                duration: 2,
-              },
-              0,
-            ],
-          },
-        ];
-        return { id, elem, settings, animation };
-      },
-    ],
-  };
-
   useEffect(() => {
     let ctx = gsap.context(() => {
-      console.log(gsap)
       const tl = gsap.timeline({
         scrollTrigger: {
           id: 'si01',
           trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
-          // scroller: '#scroll-container', // id of scroll container if using LOCOMOTIVE
           scrub: 1,
           start: 'top 0%',
           end: '+=100%',
