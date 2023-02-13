@@ -93,7 +93,7 @@ export default function Home() {
         <m.div initial='initial' animate='enter' exit='exit'>
           <m.section
             variants={fade}
-            className='scrollsection h-screen-1/2 w-full flex justify-center items-center p-10 '
+            className='scrollsection h-screen w-full flex justify-center items-center p-10 '
           >
             <div className='w-full h-full line bg-yellow-200 bg-opacity-0 md:bg-opacity-100'></div>
             <div className='absolute left-1/2 top 1/2 -translate-x-1/2 -translate-y-1/2 text-xl'>
