@@ -48,7 +48,7 @@ export default function Home() {
               {
                 scaleX: 0,
                 transformOrigin: 'left center',
-                background: 'rgba(253, 230, 138, 0)',
+                background: 'rgba(253, 230, 0, 1)',
                 ease: 'none',
                 duration: 1,
               },
@@ -80,7 +80,7 @@ export default function Home() {
             set: [
               elem,
               {
-                background: 'rgba(253, 230, 138, 0)',
+                background: 'rgba(253, 230, 138, 1)',
               },
             ],
           },
@@ -90,7 +90,7 @@ export default function Home() {
               {
                 scaleX: 0,
                 transformOrigin: 'left center',
-                background: 'rgba(253, 230, 138, 1)',
+                background: 'rgba(253, 0, 138, 1)',
                 ease: 'none',
                 duration: 2,
               },
@@ -104,7 +104,7 @@ export default function Home() {
   };
 
   gsap.registerPlugin(ScrollTrigger);
-  
+
   useEffect(() => {
     const animation = applyAnimation({ animation: animationObj, gsap: gsap });
     return () => animation.revert();
@@ -121,7 +121,7 @@ export default function Home() {
             variants={fade}
             className='scrollsection h-screen w-full flex justify-center items-center p-10 '
           >
-            <div className='w-full h-full line bg-yellow-200 bg-opacity-0 md:bg-opacity-100'></div>
+            <div className='w-full h-full line bg-yellow-200 bg-opacity-100'></div>
             <div className='absolute left-1/2 top 1/2 -translate-x-1/2 -translate-y-1/2 text-xl'>
               {' '}
               Scroll and Watch the Bar Moves
