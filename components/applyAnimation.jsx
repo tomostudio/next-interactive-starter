@@ -5,7 +5,6 @@ const applyAnimation = ({ animation, gsap: gsap }) => {
     // Anim = animation
     // tl = timeline to push
     // ss = save style
-
     let tl = [];
     if (anim) {
       // check if there are multiple animation
@@ -14,6 +13,7 @@ const applyAnimation = ({ animation, gsap: gsap }) => {
         anim.forEach((each_anim) => {
           // push each animation into array.
           // pushing animation = running the animation.
+          console.log(each_anim);
           const { settings, animation } = each_anim();
 
           let _tl = gsap.timeline(settings);
@@ -62,10 +62,10 @@ const applyAnimation = ({ animation, gsap: gsap }) => {
     // fill animation
     _property.forEach((p, id) => {
       // push animation to object
-
+      console.log(p);
       const pushData = {
         media: p,
-        function: function () {
+        function: () => {
           //run apply animation function
 
           const tl = applyAnimation({
