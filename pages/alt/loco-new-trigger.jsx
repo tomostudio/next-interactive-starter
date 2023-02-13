@@ -285,123 +285,120 @@ const LocomotiveTrigger = () => {
     //   smooth: true,
     //   multiplier: 1.5,
     // });
-
-    if (scroll) {
-      scroll.on('scroll', ScrollTrigger.update);
-      let scrollerQuery = `#${scroll.el.id}`;
-      if (!scrollerQuery) {
-        scrollerQuery = `.${scroll.el.className.replace(/ /g, '.')}`;
-      }
-
-      ScrollTrigger.scrollerProxy(scrollerQuery, {
-        scrollTop(value) {
-          if (scroll) {
-            return arguments.length
-              ? scroll.scrollTo(value, 0, 0)
-              : scroll.scroll.instance.scroll.y;
-          }
-          return null;
-        },
-        scrollLeft(value) {
-          if (scroll) {
-            return arguments.length
-              ? scroll.scrollTo(value, 0, 0)
-              : scroll.scroll.instance.scroll.x;
-          }
-          return null;
-        },
-        getBoundingClientRect() {
-          return {
-            top: 0,
-            left: 0,
-            width: window.innerWidth,
-            height: window.innerHeight,
-          };
-        },
-      });
-
-      const lsUpdate = () => {
-        if (scroll) {
-          scroll.update();
-        }
-      };
-
-      ScrollTrigger.addEventListener('refresh', lsUpdate);
-      ScrollTrigger.refresh();
-
-      // scroll trigger
-
-      mm.add('(min-width: 751px)', () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            id: 'si01',
-            trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
-            scroller: `#${scroll.el.id}`, // id of scroll container
-
-            scrub: 1,
-            start: 'top 0%',
-            end: '+=100%',
-            markers: true,
-          },
-        });
-
-        const elem = document.querySelector('.scrollsection .line');
-
-        tl.set(elem, { background: 'rgba(253, 230, 138, 1)' });
-        tl.to(
-          elem,
-          {
-            scaleX: 0,
-            transformOrigin: 'left center',
-            background: 'rgba(253, 230, 138, 0)',
-            ease: 'none',
-            duration: 1,
-          },
-          0
-        );
-        return () => {
-          // optional
-          // custom cleanup code here (runs when it STOPS matching)
-        };
-      });
-
-      console.log(`#${scroll.el.id}`);
-      mm.add('(max-width: 750px)', () => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            id: 'si02',
-            trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
-            scroller: `#${scroll.el.id}`, // id of scroll container
-            scrub: 1,
-            start: 'top 0%',
-            end: '+=100%',
-            markers: true,
-          },
-        });
-
-        const elem = document.querySelector('.scrollsection .line');
-
-        tl.set(elem, { background: 'rgba(253, 230, 138, 0)' });
-        tl.to(
-          elem,
-          {
-            scaleX: 0,
-            transformOrigin: 'left center',
-            background: 'rgba(253, 230, 138, 1)',
-            ease: 'none',
-            duration: 2,
-          },
-          0
-        );
-        return () => {
-          // optional
-          // custom cleanup code here (runs when it STOPS matching)
-        };
-      });
+    scroll.on('scroll', ScrollTrigger.update);
+    let scrollerQuery = `#${scroll.el.id}`;
+    if (!scrollerQuery) {
+      scrollerQuery = `.${scroll.el.className.replace(/ /g, '.')}`;
     }
+
+    ScrollTrigger.scrollerProxy(scrollerQuery, {
+      scrollTop(value) {
+        if (scroll) {
+          return arguments.length
+            ? scroll.scrollTo(value, 0, 0)
+            : scroll.scroll.instance.scroll.y;
+        }
+        return null;
+      },
+      scrollLeft(value) {
+        if (scroll) {
+          return arguments.length
+            ? scroll.scrollTo(value, 0, 0)
+            : scroll.scroll.instance.scroll.x;
+        }
+        return null;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      },
+    });
+
+    const lsUpdate = () => {
+      if (scroll) {
+        scroll.update();
+      }
+    };
+
+    ScrollTrigger.addEventListener('refresh', lsUpdate);
+    ScrollTrigger.refresh();
+
+    // scroll trigger
+
+    mm.add('(min-width: 751px)', () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: 'si01',
+          trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
+          scroller: `#${scroll.el.id}`, // id of scroll container
+
+          scrub: 1,
+          start: 'top 0%',
+          end: '+=100%',
+          markers: true,
+        },
+      });
+
+      const elem = document.querySelector('.scrollsection .line');
+
+      tl.set(elem, { background: 'rgba(253, 230, 138, 1)' });
+      tl.to(
+        elem,
+        {
+          scaleX: 0,
+          transformOrigin: 'left center',
+          background: 'rgba(253, 230, 138, 0)',
+          ease: 'none',
+          duration: 1,
+        },
+        0
+      );
+      return () => {
+        // optional
+        // custom cleanup code here (runs when it STOPS matching)
+      };
+    });
+
+    console.log(`#${scroll.el.id}`);
+    mm.add('(max-width: 750px)', () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          id: 'si02',
+          trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
+          scroller: `#${scroll.el.id}`, // id of scroll container
+          scrub: 1,
+          start: 'top 0%',
+          end: '+=100%',
+          markers: true,
+        },
+      });
+
+      const elem = document.querySelector('.scrollsection .line');
+
+      tl.set(elem, { background: 'rgba(253, 230, 138, 0)' });
+      tl.to(
+        elem,
+        {
+          scaleX: 0,
+          transformOrigin: 'left center',
+          background: 'rgba(253, 230, 138, 1)',
+          ease: 'none',
+          duration: 2,
+        },
+        0
+      );
+      return () => {
+        // optional
+        // custom cleanup code here (runs when it STOPS matching)
+      };
+    });
 
     return () => {
       mm.revert();
     };
-  }, [scroll]);
+  }, []);
 };
