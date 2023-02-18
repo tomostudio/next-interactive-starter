@@ -182,7 +182,7 @@ const ScrollTriggerWrapper = forwardRef((props, ref) => {
           stMatchMedia.push(pushData);
         });
 
-        console.log(stMatchMedia);
+        // console.log(stMatchMedia);
 
         // RUN Scrolltrigger MatchMedia
         let mm = gsap.matchMedia();
