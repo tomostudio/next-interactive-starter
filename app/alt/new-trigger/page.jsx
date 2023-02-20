@@ -1,23 +1,25 @@
 'use client'
 
-import { useRef, useEffect } from 'react';
-import Layout from '@/components/layout';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
-import Container from '@/components/container';
-import FancyLink from '@/components/fancyLink';
-import { NextSeo } from 'next-seo';
+import { useRef, useEffect } from 'react'
+import Layout from '@/components/layout'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+import Container from '@/components/container'
+import FancyLink from '@/components/fancyLink'
+import { fade } from '@/helpers/transitions'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { NextSeo } from 'next-seo'
 
 // NEW
 
-import { gsap } from 'gsap/dist/gsap';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { gsap } from 'gsap/dist/gsap'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 
 export default function Home() {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger)
 
   useEffect(() => {
-    let mm = gsap.matchMedia();
+    let mm = gsap.matchMedia()
 
     mm.add('(min-width: 751px)', () => {
       const tl = gsap.timeline({
@@ -29,11 +31,11 @@ export default function Home() {
           end: '+=100%',
           markers: true,
         },
-      });
+      })
 
-      const elem = document.querySelector('.scrollsection .line');
+      const elem = document.querySelector('.scrollsection .line')
 
-      tl.set(elem, { background: 'rgba(253, 230, 138, 1)' });
+      tl.set(elem, { background: 'rgba(253, 230, 138, 1)' })
       tl.to(
         elem,
         {
@@ -43,13 +45,13 @@ export default function Home() {
           ease: 'none',
           duration: 1,
         },
-        0
-      );
+        0,
+      )
       return () => {
         // optional
         // custom cleanup code here (runs when it STOPS matching)
-      };
-    });
+      }
+    })
     mm.add('(max-width: 750px)', () => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -60,11 +62,11 @@ export default function Home() {
           end: '+=100%',
           markers: true,
         },
-      });
+      })
 
-      const elem = document.querySelector('.scrollsection .line');
+      const elem = document.querySelector('.scrollsection .line')
 
-      tl.set(elem, { background: 'rgba(253, 230, 138, 1)' });
+      tl.set(elem, { background: 'rgba(253, 230, 138, 1)' })
       tl.to(
         elem,
         {
@@ -74,40 +76,43 @@ export default function Home() {
           ease: 'none',
           duration: 2,
         },
-        0
-      );
+        0,
+      )
       return () => {
         // optional
         // custom cleanup code here (runs when it STOPS matching)
-      };
-    });
-    return () => mm.revert();
-  }, []);
+      }
+    })
+    return () => mm.revert()
+  }, [])
 
   return (
     <Layout>
-      <NextSeo title='Home' />
+      <NextSeo title="Home" />
 
       <Header />
-        <div>
-          <section
-            className='scrollsection h-screen w-full flex justify-center items-center p-10 '
+      <LazyMotion features={domAnimation}>
+        <m.div initial="initial" animate="enter" exit="exit">
+          <m.section
+            variants={fade}
+            className="scrollsection h-screen w-full flex justify-center items-center p-10 "
           >
-            <div className='w-full h-full line bg-yellow-200 bg-opacity-100'></div>
-            <div className='absolute left-1/2 top 1/2 -translate-x-1/2 -translate-y-1/2 text-xl'>
+            <div className="w-full h-full line bg-yellow-200 bg-opacity-100"></div>
+            <div className="absolute left-1/2 top 1/2 -translate-x-1/2 -translate-y-1/2 text-xl">
               {' '}
               Scroll and Watch the Bar Moves
             </div>
-          </section>
-          <main
-            className='mb-12 md:mb-16 xl:mb-24 pt-24 md:pt-20'
+          </m.section>
+          <m.main
+            variants={fade}
+            className="mb-12 md:mb-16 xl:mb-24 pt-24 md:pt-20"
           >
             <Container>
               <article>
-                <h1 className='font-bold text-2xl md:text-3xl xl:text-4xl mb-4'>
+                <h1 className="font-bold text-2xl md:text-3xl xl:text-4xl mb-4">
                   SCROLL TRIGGER NO LOCOMOTIVE NEW TRIGGER
                 </h1>
-                <div className='content max-w-3xl mb-4'>
+                <div className="content max-w-3xl mb-4">
                   <h2>Some example content</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -120,8 +125,8 @@ export default function Home() {
                   <p
                     data-scroll
                     data-scroll-repeat
-                    data-scroll-call='trigger'
-                    className='trigger'
+                    data-scroll-call="trigger"
+                    className="trigger"
                   >
                     Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
                     sint occaecat cupidatat non proident, sunt in culpa qui
@@ -161,8 +166,8 @@ export default function Home() {
                   <p
                     data-scroll
                     data-scroll-repeat
-                    data-scroll-call='trigger'
-                    className='trigger'
+                    data-scroll-call="trigger"
+                    className="trigger"
                   >
                     Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
                     sint occaecat cupidatat non proident, sunt in culpa qui
@@ -193,8 +198,8 @@ export default function Home() {
                   <p
                     data-scroll
                     data-scroll-repeat
-                    data-scroll-call='trigger'
-                    className='trigger'
+                    data-scroll-call="trigger"
+                    className="trigger"
                   >
                     Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
                     sint occaecat cupidatat non proident, sunt in culpa qui
@@ -219,8 +224,8 @@ export default function Home() {
                   <p
                     data-scroll
                     data-scroll-repeat
-                    data-scroll-call='trigger'
-                    className='trigger'
+                    data-scroll-call="trigger"
+                    className="trigger"
                   >
                     Velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
                     sint occaecat cupidatat non proident, sunt in culpa qui
@@ -274,18 +279,19 @@ export default function Home() {
                 </div>
 
                 <FancyLink
-                  destination='/about'
-                  a11yText='Navigate to the about page'
-                  label='About Page'
+                  destination="/about"
+                  a11yText="Navigate to the about page"
+                  label="About Page"
                 />
               </article>
             </Container>
-          </main>
+          </m.main>
 
-          <div>
+          <m.div variants={fade}>
             <Footer />
-          </div>
-        </div>
+          </m.div>
+        </m.div>
+      </LazyMotion>
     </Layout>
-  );
+  )
 }

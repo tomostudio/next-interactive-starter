@@ -6,6 +6,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import Container from '@/components/container'
 import FancyLink from '@/components/fancyLink'
+import { fade } from '@/helpers/transitions'
 
 import {
   useLocomotiveScroll,
@@ -13,6 +14,8 @@ import {
 } from 'react-locomotive-scroll'
 
 import PushScrollGlobal from '@/helpers/globalscroll'
+
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 
 // NEW
@@ -48,207 +51,227 @@ export default function Home() {
         >
           <div data-scroll-section>
             <Header />
-            <div>
-              <section className="scrollsection h-screen w-full flex justify-center items-center p-10 ">
-                <div className="w-full h-full line bg-yellow-200 bg-opacity-100"></div>
-                <div className="absolute left-1/2 top 1/2 -translate-x-1/2 -translate-y-1/2 text-xl">
-                  {' '}
-                  Scroll and Watch the Bar Moves
-                </div>
-              </section>
-              <main className="mb-12 md:mb-16 xl:mb-24 pt-24 md:pt-20">
-                <Container>
-                  <article>
-                    <h1 className="font-bold text-2xl md:text-3xl xl:text-4xl mb-4">
-                      SCROLL TRIGGER NO LOCOMOTIVE NEW TRIGGER
-                    </h1>
-                    <div className="content max-w-3xl mb-4">
-                      <h2>Some example content</h2>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate.
-                      </p>
+            <LazyMotion features={domAnimation}>
+              <m.div initial="initial" animate="enter" exit="exit">
+                <m.section
+                  variants={fade}
+                  className="scrollsection h-screen w-full flex justify-center items-center p-10 "
+                >
+                  <div className="w-full h-full line bg-yellow-200 bg-opacity-100"></div>
+                  <div className="absolute left-1/2 top 1/2 -translate-x-1/2 -translate-y-1/2 text-xl">
+                    {' '}
+                    Scroll and Watch the Bar Moves
+                  </div>
+                </m.section>
+                <m.main
+                  variants={fade}
+                  className="mb-12 md:mb-16 xl:mb-24 pt-24 md:pt-20"
+                >
+                  <Container>
+                    <article>
+                      <h1 className="font-bold text-2xl md:text-3xl xl:text-4xl mb-4">
+                        SCROLL TRIGGER NO LOCOMOTIVE NEW TRIGGER
+                      </h1>
+                      <div className="content max-w-3xl mb-4">
+                        <h2>Some example content</h2>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate.
+                        </p>
 
-                      <p
-                        data-scroll
-                        data-scroll-repeat
-                        data-scroll-call="trigger"
-                        className="trigger"
-                      >
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p
+                          data-scroll
+                          data-scroll-repeat
+                          data-scroll-call="trigger"
+                          className="trigger"
+                        >
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <p>
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p>
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <h2>Some example content</h2>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate.
-                      </p>
+                        <h2>Some example content</h2>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate.
+                        </p>
 
-                      <p>
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p>
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <h2>Some example content</h2>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate.
-                      </p>
+                        <h2>Some example content</h2>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate.
+                        </p>
 
-                      <p
-                        data-scroll
-                        data-scroll-repeat
-                        data-scroll-call="trigger"
-                        className="trigger"
-                      >
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p
+                          data-scroll
+                          data-scroll-repeat
+                          data-scroll-call="trigger"
+                          className="trigger"
+                        >
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <p>
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p>
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <h2>Some example content</h2>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate.
-                      </p>
+                        <h2>Some example content</h2>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate.
+                        </p>
 
-                      <p>
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p>
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <p
-                        data-scroll
-                        data-scroll-repeat
-                        data-scroll-call="trigger"
-                        className="trigger"
-                      >
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p
+                          data-scroll
+                          data-scroll-repeat
+                          data-scroll-call="trigger"
+                          className="trigger"
+                        >
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <h2>Some example content</h2>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate.
-                      </p>
+                        <h2>Some example content</h2>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate.
+                        </p>
 
-                      <p>
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p>
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <p
-                        data-scroll
-                        data-scroll-repeat
-                        data-scroll-call="trigger"
-                        className="trigger"
-                      >
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p
+                          data-scroll
+                          data-scroll-repeat
+                          data-scroll-call="trigger"
+                          className="trigger"
+                        >
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <h2>Some example content</h2>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate.
-                      </p>
+                        <h2>Some example content</h2>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate.
+                        </p>
 
-                      <p>
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p>
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <h2>Some example content</h2>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate.
-                      </p>
+                        <h2>Some example content</h2>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate.
+                        </p>
 
-                      <p>
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                        <p>
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
 
-                      <h2>Some example content</h2>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate.
-                      </p>
+                        <h2>Some example content</h2>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod tempor incididunt ut labore et
+                          dolore magna aliqua. Ut enim ad minim veniam, quis
+                          nostrud exercitation ullamco laboris nisi ut aliquip
+                          ex ea commodo consequat. Duis aute irure dolor in
+                          reprehenderit in voluptate.
+                        </p>
 
-                      <p>
-                        Velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
-                    </div>
+                        <p>
+                          Velit esse cillum dolore eu fugiat nulla pariatur.
+                          Excepteur sint occaecat cupidatat non proident, sunt
+                          in culpa qui officia deserunt mollit anim id est
+                          laborum.
+                        </p>
+                      </div>
 
-                    <FancyLink
-                      destination="/about"
-                      a11yText="Navigate to the about page"
-                      label="About Page"
-                    />
-                  </article>
-                </Container>
-              </main>
+                      <FancyLink
+                        destination="/about"
+                        a11yText="Navigate to the about page"
+                        label="About Page"
+                      />
+                    </article>
+                  </Container>
+                </m.main>
 
-              <div>
-                <Footer />
-              </div>
-            </div>
+                <m.div variants={fade}>
+                  <Footer />
+                </m.div>
+              </m.div>
+            </LazyMotion>
           </div>
         </div>
       </LocomotiveScrollProvider>
