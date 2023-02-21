@@ -3,6 +3,7 @@ import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 
 import { schemaTypes } from "./schemas";
+import { defaultDocumentNode } from './src/defaultDocumentNode'
 
 export default defineConfig({
   title: "Sanity Starter",
@@ -11,7 +12,9 @@ export default defineConfig({
   projectId: "hdejj5sl",
   dataset: "production",
 
-  plugins: [deskTool(), visionTool()],
+  plugins: [deskTool({
+    defaultDocumentNode,
+  }), visionTool()],
   schema: {
     types: schemaTypes,
   },
