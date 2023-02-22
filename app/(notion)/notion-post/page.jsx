@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { use, useEffect, useState } from 'react'
 
 const getData = async () => {
-  const response = await fetch('http://localhost:3000/api/notion')
+  const response = await fetch('https://next-interactive-starter.vercel.app/api/notion')
   return response.json()
 }
 const NotionPost = () => {
