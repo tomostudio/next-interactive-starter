@@ -3,6 +3,11 @@ module.exports = {
     appDir: true,
   },
   images: {
-    domains: ["cdn.sanity.io"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
 };
