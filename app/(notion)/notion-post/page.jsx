@@ -5,17 +5,17 @@ import Layout from '@/components/layout'
 import Image from 'next/image'
 import { use, useEffect, useState } from 'react'
 
-const getData = async () => fetch('https://next-interactive-starter.vercel.app/api/notion').then((res) => res.json())
+// const getData = async () => fetch('https://next-interactive-starter.vercel.app/api/notion/getPost').then((res) => res.json())
 const NotionPost = () => {
-  const post = use(getData())
+  // const post = use(getData())
   return (
     <Layout>
-      <div className="max-w-screen-lg w-full mx-auto flex flex-col space-y-8 px-4 mt-10">
+      {/* <div className="max-w-screen-lg w-full mx-auto flex flex-col space-y-8 px-4 mt-10">
         <h1 className="text-4xl">Notion Post</h1>
-        {post?.map(({properties, cover}, id) => (
+        {post?.map(({ id, properties, cover }, key) => (
           <div
             className="w-full h-fit flex flex-col space-y-2 border-2 rounded border-black bg-gray-100"
-            key={id}
+            key={key}
           >
             <div className="relative w-full h-48">
               <Image
@@ -34,7 +34,7 @@ const NotionPost = () => {
             <div className="px-4 py-2">
               <div className="mt-6">
                 <FancyLink
-                  destination={`/sanity-post/${properties.Slug.formula.string}`}
+                  destination={`/notion-post/${id}`}
                   a11yText="Navigate to the about page"
                   label="READ MORE"
                 />
@@ -42,7 +42,7 @@ const NotionPost = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </Layout>
   )
 }
