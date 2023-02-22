@@ -9,7 +9,7 @@ export const defaultDocumentNode = (S, {schemaType}) => {
         S.view
           .component(Iframe)
           .options({
-            url: (doc) => `http://localhost:3000/sanity-post/${doc.slug.current}`,
+            url: (doc) => `https://next-interactive-starter.vercel.app/sanity-post/${doc.slug.current}`,
           })
           .title('Preview'),
       ])
