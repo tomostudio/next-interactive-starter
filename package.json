@@ -30,6 +30,7 @@
     "@sanity/types": "^3",
     "@sanity/ui": "^1",
     "@sanity/vision": "^3.4.0",
+    "axios": "^1.3.3",
     "framer-motion": "^9.0.2",
     "gsap": "^3.11.4",
     "locomotive-scroll": "^4.1.4",
@@ -45,7 +46,8 @@
     "react-locomotive-scroll": "^0.2.2",
     "sanity": "^3",
     "sanity-plugin-iframe-pane": "^2.1.1",
-    "styled-components": "^5.2"
+    "styled-components": "^5.2",
+    "swr": "^2.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
