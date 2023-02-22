@@ -14,7 +14,7 @@ import ReactMarkdown from 'react-markdown'
 const PostPage = ({ params }) => {
   const { id } = params
 
-  const post = use(getData(id))
+  // const post = use(getData(id))
 
   // if (post.status === 404) return null
 
