@@ -12,6 +12,8 @@ export default function Header() {
             <FancyLink destination="/" a11yText="Navigate to the home page" label="Home" />
 
             <FancyLink destination="/about" a11yText="Navigate to the about page" label="About" />
+            <FancyLink destination="/notion-post" a11yText="Navigate to the about page" label="Notion Post" />
+            <FancyLink destination="/sanity-post" a11yText="Navigate to the about page" label="Sanity Post" />
           </nav>
         </div>
       </Container>
