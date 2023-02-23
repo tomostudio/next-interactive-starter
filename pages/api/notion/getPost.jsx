@@ -4,7 +4,7 @@ const notion = new Client({ auth: process.env.NOTION_ACCESS_TOKEN })
 
 export default async function handler(req, res) {
   const response = await notion.databases.query({
-    database_id: 'b89cc134f51d4533ba2967963b2f84e6',
+    database_id: '82999daa91ce4c27a67c3437d5ddc3c3',
     filter: {
       property: 'Published',
       checkbox: {
