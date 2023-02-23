@@ -49,7 +49,8 @@
     "react-locomotive-scroll": "^0.2.2",
     "react-markdown": "^8.0.5",
     "sanity": "^3",
-    "sanity-plugin-iframe-pane": "^2.1.1"
+    "sanity-plugin-iframe-pane": "^2.1.1",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
