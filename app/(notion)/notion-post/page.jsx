@@ -1,9 +1,7 @@
-'use client'
-
 import FancyLink from '@/components/fancyLink'
 import Layout from '@/components/layout'
 import Image from 'next/image'
-import { use, useEffect, useState } from 'react'
+import { use } from 'react'
 
 const getData = async () => fetch('https://next-interactive-starter.vercel.app/api/notion/getPost').then((res) => res.json())
 const NotionPost = () => {

@@ -1,5 +1,3 @@
-'use client'
-
 import FancyLink from '@/components/fancyLink'
 import Layout from '@/components/layout'
 import Image from 'next/image'
