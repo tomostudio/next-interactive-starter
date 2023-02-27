@@ -3,15 +3,15 @@ import Layout from '@/components/layout'
 import Image from 'next/image'
 import { use } from 'react'
 
-// const getData = async () =>
-//   fetch(
-//     'https://next-interactive-starter.vercel.app/api/notion/getPost',
-//   ).then((res) => res.json())
+const getData = async () =>
+  fetch(
+    'https://next-interactive-starter.vercel.app/api/notion/getPost',
+  ).then((res) => res.json())
 const NotionPost = () => {
-  // const post = use(getData())
+  const post = use(getData())
   return (
     <Layout>
-      {/* <div className="max-w-screen-lg w-full mx-auto flex flex-col space-y-8 px-4 mt-10">
+      <div className="max-w-screen-lg w-full mx-auto flex flex-col space-y-8 px-4 mt-10">
         <h1 className="text-4xl">Notion Post</h1>
         {post?.map(({ id, properties, cover }, key) => (
           <div
@@ -44,7 +44,7 @@ const NotionPost = () => {
             </div>
           </div>
         ))}
-      </div> */}
+      </div>
     </Layout>
   )
 }
