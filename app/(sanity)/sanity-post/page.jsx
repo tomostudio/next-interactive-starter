@@ -25,7 +25,7 @@ const SanityPost = () => {
   useEffect(() => {
     getData()
   }, [])
-  
+
   return (
     <Layout>
       <div className="max-w-screen-lg w-full mx-auto flex flex-col space-y-8 px-4 mt-10">
@@ -54,8 +54,9 @@ const SanityPost = () => {
                 <FancyLink
                   destination={`/sanity-post/${data.slug}`}
                   a11yText="Navigate to the about page"
-                  label="READ MORE"
-                />
+                >
+                  READ MORE
+                </FancyLink>
               </div>
             </div>
           </div>

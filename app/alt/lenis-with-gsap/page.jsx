@@ -19,7 +19,7 @@ import Lenis from '@studio-freight/lenis'
 
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger)
-	const lenis = useRef(null)
+  const lenis = useRef(null)
 
   const containerRef = useRef(null)
 
@@ -111,8 +111,8 @@ export default function Home() {
   }
 
   const update = (time, deltaTime, frame) => {
-		lenis.current.raf(time)
-	}
+    lenis.current.raf(time)
+  }
 
   useEffect(() => {
     lenis.current = new Lenis({
@@ -124,7 +124,7 @@ export default function Home() {
       lenis.current.raf(time)
       requestAnimationFrame(raf)
     }
-    
+
     requestAnimationFrame(raf)
 
     window.addEventListener('LocoCall', (e) => {
@@ -332,8 +332,9 @@ export default function Home() {
                   <FancyLink
                     destination="/about"
                     a11yText="Navigate to the about page"
-                    label="About Page"
-                  />
+                  >
+                    About Page
+                  </FancyLink>
                 </article>
               </Container>
             </m.main>

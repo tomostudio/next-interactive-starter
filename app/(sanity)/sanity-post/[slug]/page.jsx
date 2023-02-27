@@ -30,7 +30,7 @@ const PostPage = async({ params }) => {
   return (
     <Layout>
       <div className="max-w-screen-lg w-full mx-auto flex flex-col space-y-8 px-4 mt-10">
-        <FancyLink destination="/sanity-post" label="Back" />
+        <FancyLink destination="/sanity-post">Back</FancyLink>
         <h1 className="text-4xl">{post.title}</h1>
         <div className="w-full flex flex-col space-y-2">
           <div className="relative w-full h-96">

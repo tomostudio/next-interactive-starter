@@ -3,7 +3,10 @@ import Layout from '@/components/layout'
 import Image from 'next/image'
 import { use } from 'react'
 
-const getData = async () => fetch('https://next-interactive-starter.vercel.app/api/notion/getPost').then((res) => res.json())
+const getData = async () =>
+  fetch(
+    'https://next-interactive-starter.vercel.app/api/notion/getPost',
+  ).then((res) => res.json())
 const NotionPost = () => {
   const post = use(getData())
   return (
@@ -34,8 +37,9 @@ const NotionPost = () => {
                 <FancyLink
                   destination={`/notion-post/${id}`}
                   a11yText="Navigate to the about page"
-                  label="READ MORE"
-                />
+                >
+                  READ MORE
+                </FancyLink>
               </div>
             </div>
           </div>

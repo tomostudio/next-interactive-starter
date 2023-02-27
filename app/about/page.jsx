@@ -315,8 +315,9 @@ export default function About() {
                         <FancyLink
                           destination="/"
                           a11yText="Navigate to the home page"
-                          label="Home Page"
-                        />
+                        >
+                          Home Page
+                        </FancyLink>
                       </article>
                     </Container>
                   </m.main>

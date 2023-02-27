@@ -2,12 +2,12 @@ import FancyLink from '@/components/fancyLink'
 import Layout from '@/components/layout'
 import Image from 'next/image'
 import { use } from 'react'
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from 'react-markdown'
 
 const getData = async (id) =>
-  fetch(`https://next-interactive-starter.vercel.app/api/notion/getDetailPost/${id}`).then((res) =>
-    res.json(),
-  )
+  fetch(
+    `https://next-interactive-starter.vercel.app/api/notion/getDetailPost/${id}`,
+  ).then((res) => res.json())
 
 const PostPage = ({ params }) => {
   const { id } = params
@@ -19,7 +19,7 @@ const PostPage = ({ params }) => {
   return (
     <Layout>
       <div className="max-w-screen-lg w-full mx-auto flex flex-col space-y-8 px-4 mt-10">
-        <FancyLink destination="/sanity-post" label="Back" />
+        <FancyLink destination="/sanity-post">Back</FancyLink>
         <h1 className="text-4xl">
           {post.page.properties.Name.title[0].plain_text}
         </h1>
