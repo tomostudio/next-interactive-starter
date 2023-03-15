@@ -2,7 +2,7 @@
 import Layout from '@/components/layout'
 import { TreeItem } from '@sanity/ui'
 import Matter from 'matter-js'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const AnimationPage = () => {
   const canvas = useRef()
@@ -16,7 +16,9 @@ const AnimationPage = () => {
       MouseConstraint = Matter.MouseConstraint,
       Mouse = Matter.Mouse,
       Composite = Matter.Composite,
-      Bodies = Matter.Bodies
+      Bodies = Matter.Bodies,
+      Vector = Matter.Vector,
+      Body = Matter.Body
 
     // create engine
     var engine = Engine.create(),
@@ -28,8 +30,8 @@ const AnimationPage = () => {
       canvas: canvas.current,
       engine: engine,
       options: {
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: canvas.current.getBoundingClientRect().width,
+        height: canvas.current.getBoundingClientRect().height,
         showAngleIndicator: false,
         wireframes: false,
         background: 'white',
@@ -42,41 +44,38 @@ const AnimationPage = () => {
     var runner = Runner.create()
     Runner.run(runner, engine)
 
-    world.bodies = []
-
     // these static walls will not be rendered in this sprites example, see options
-    Composite.add(world, [
-      Bodies.rectangle(
-        window.innerWidth / 2,
-        window.innerHeight + 30,
-        window.innerWidth,
-        60,
-        {
-          isStatic: true,
-          label: 'Ground',
-        },
-      ),
-      Bodies.rectangle(
-        -30,
-        window.innerHeight / 2,
-        60,
-        window.innerHeight * 3,
-        {
-          isStatic: true,
-          label: 'Wall Left',
-        },
-      ),
-      Bodies.rectangle(
-        window.innerWidth + 30,
-        window.innerHeight / 2,
-        60,
-        window.innerHeight * 3,
-        {
-          isStatic: true,
-          label: 'Wall Right',
-        },
-      ),
-    ])
+    const ground = Bodies.rectangle(
+      canvas.current.getBoundingClientRect().width / 2,
+      canvas.current.getBoundingClientRect().height + 30,
+      canvas.current.getBoundingClientRect().width,
+      60,
+      {
+        isStatic: true,
+        label: 'Ground',
+      },
+    )
+    const wallLeft = Bodies.rectangle(
+      -30,
+      canvas.current.getBoundingClientRect().height / 2,
+      60,
+      canvas.current.getBoundingClientRect().height * 5,
+      {
+        isStatic: true,
+        label: 'Wall Left',
+      },
+    )
+    const wallRight = Bodies.rectangle(
+      canvas.current.getBoundingClientRect().width + 30,
+      canvas.current.getBoundingClientRect().height / 2,
+      60,
+      canvas.current.getBoundingClientRect().height * 5,
+      {
+        isStatic: true,
+        label: 'Wall Right',
+      },
+    )
+    Composite.add(world, [ground, wallLeft, wallRight])
 
     const assets = [
       'Graphic_Element_Morin_apricot 1.svg',
@@ -96,23 +95,29 @@ const AnimationPage = () => {
     assets.forEach((data, id) => {
       if (id === 0) {
         stack.push(
-          Composites.stack(window.innerWidth / 6, -300, 1, 1, 10, 10, function (
-            x,
-            y,
-          ) {
-            return Bodies.circle(x, y, 90, {
-              render: {
-                strokeStyle: '#ffffff',
-                sprite: {
-                  texture: `./assets/animation-1/${data}`,
-                  xScale: 2,
-                  yScale: 2,
-                },
-              },
-            })
-          }),
           Composites.stack(
-            window.innerWidth - window.innerWidth / 5,
+            canvas.current.getBoundingClientRect().width / 6,
+            -300,
+            1,
+            1,
+            10,
+            10,
+            function (x, y) {
+              return Bodies.circle(x, y, 90, {
+                render: {
+                  strokeStyle: '#ffffff',
+                  sprite: {
+                    texture: `./assets/animation-1/${data}`,
+                    xScale: 2,
+                    yScale: 2,
+                  },
+                },
+              })
+            },
+          ),
+          Composites.stack(
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width / 5,
             -200,
             1,
             1,
@@ -131,23 +136,29 @@ const AnimationPage = () => {
               })
             },
           ),
-          Composites.stack(window.innerWidth / 6, -100, 1, 1, 10, 10, function (
-            x,
-            y,
-          ) {
-            return Bodies.circle(x, y, 90, {
-              render: {
-                strokeStyle: '#ffffff',
-                sprite: {
-                  texture: `./assets/animation-1/${data}`,
-                  xScale: 2,
-                  yScale: 2,
-                },
-              },
-            })
-          }),
           Composites.stack(
-            window.innerWidth - window.innerWidth / 5,
+            canvas.current.getBoundingClientRect().width / 6,
+            -100,
+            1,
+            1,
+            10,
+            10,
+            function (x, y) {
+              return Bodies.circle(x, y, 90, {
+                render: {
+                  strokeStyle: '#ffffff',
+                  sprite: {
+                    texture: `./assets/animation-1/${data}`,
+                    xScale: 2,
+                    yScale: 2,
+                  },
+                },
+              })
+            },
+          ),
+          Composites.stack(
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width / 5,
             -300,
             1,
             1,
@@ -170,7 +181,7 @@ const AnimationPage = () => {
       } else if (id === 1) {
         stack.push(
           Composites.stack(
-            window.innerWidth / 6 + 80,
+            canvas.current.getBoundingClientRect().width / 6 + 80,
             -400,
             1,
             1,
@@ -190,7 +201,9 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth - window.innerWidth / 3 + 80,
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width / 3 +
+              80,
             -300,
             1,
             1,
@@ -210,7 +223,7 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth / 6 + 80,
+            canvas.current.getBoundingClientRect().width / 6 + 80,
             -200,
             1,
             1,
@@ -230,7 +243,9 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth - window.innerWidth / 3 + 80,
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width / 3 +
+              80,
             -300,
             1,
             1,
@@ -256,7 +271,7 @@ const AnimationPage = () => {
       ) {
         stack.push(
           Composites.stack(
-            window.innerWidth / 6 + 80 * id,
+            canvas.current.getBoundingClientRect().width / 6 + 80 * id,
             -500,
             1,
             1,
@@ -276,7 +291,9 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth - window.innerWidth + 80 * id,
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width +
+              80 * id,
             -400,
             1,
             1,
@@ -296,7 +313,7 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth / 6 + 80 * id,
+            canvas.current.getBoundingClientRect().width / 6 + 80 * id,
             -300,
             1,
             1,
@@ -316,7 +333,9 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth - window.innerWidth + 80 * id,
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width +
+              80 * id,
             -300,
             1,
             1,
@@ -339,7 +358,7 @@ const AnimationPage = () => {
       } else if (data === 'Graphic_Element_Morin_orange 1.svg') {
         stack.push(
           Composites.stack(
-            window.innerWidth / 6 + 80 * id,
+            canvas.current.getBoundingClientRect().width / 6 + 80 * id,
             -500,
             1,
             1,
@@ -359,7 +378,9 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth - window.innerWidth + 80 * id,
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width +
+              80 * id,
             -400,
             1,
             1,
@@ -379,7 +400,7 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth / 6 + 80 * id,
+            canvas.current.getBoundingClientRect().width / 6 + 80 * id,
             -300,
             1,
             1,
@@ -399,7 +420,9 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth - window.innerWidth + 80 * id,
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width +
+              80 * id,
             -300,
             1,
             1,
@@ -422,7 +445,7 @@ const AnimationPage = () => {
       } else if (data === 'Graphic_Element_Morin_orange 2.svg') {
         stack.push(
           Composites.stack(
-            window.innerWidth / 6 + 80 * id,
+            canvas.current.getBoundingClientRect().width / 6 + 80 * id,
             -500,
             1,
             1,
@@ -442,7 +465,9 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth - window.innerWidth + 80 * id,
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width +
+              80 * id,
             -400,
             1,
             1,
@@ -462,7 +487,7 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth / 6 + 80 * id,
+            canvas.current.getBoundingClientRect().width / 6 + 80 * id,
             -300,
             1,
             1,
@@ -482,7 +507,9 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth - window.innerWidth + 80 * id,
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width +
+              80 * id,
             -300,
             1,
             1,
@@ -505,7 +532,7 @@ const AnimationPage = () => {
       } else {
         stack.push(
           Composites.stack(
-            window.innerWidth / 6 + 80 * id,
+            canvas.current.getBoundingClientRect().width / 6 + 80 * id,
             -500,
             1,
             1,
@@ -525,7 +552,9 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth - window.innerWidth + 80 * id,
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width +
+              80 * id,
             -400,
             1,
             1,
@@ -545,7 +574,7 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth / 6 + 80 * id,
+            canvas.current.getBoundingClientRect().width / 6 + 80 * id,
             -300,
             1,
             1,
@@ -565,7 +594,9 @@ const AnimationPage = () => {
             },
           ),
           Composites.stack(
-            window.innerWidth - window.innerWidth + 80 * id,
+            canvas.current.getBoundingClientRect().width -
+              canvas.current.getBoundingClientRect().width +
+              80 * id,
             -300,
             1,
             1,
@@ -608,10 +639,36 @@ const AnimationPage = () => {
 
     // keep the mouse in sync with rendering
     render.mouse = mouse
+
+    window.addEventListener('resize', () => {
+      setTimeout(() => {
+        render.canvas.width = canvas.current.getBoundingClientRect().width
+        render.canvas.height = canvas.current.getBoundingClientRect().height
+
+        Body.setPosition(
+          ground,
+          Vector.create(
+            canvas.current.getBoundingClientRect().width / 2,
+            canvas.current.getBoundingClientRect().height + 30,
+          ),
+        )
+        Body.setPosition(
+          wallLeft,
+          Vector.create(-30, canvas.current.getBoundingClientRect().height / 2),
+        )
+        Body.setPosition(
+          wallRight,
+          Vector.create(
+            canvas.current.getBoundingClientRect().width + 30,
+            canvas.current.getBoundingClientRect().height / 2,
+          ),
+        )
+      }, 10)
+    })
   }, [])
   return (
     <Layout>
-      <div ref={box} className="w-full h-full">
+      <div ref={box} className="w-screen h-screen">
         <canvas ref={canvas} className="w-full h-full" />
       </div>
     </Layout>
