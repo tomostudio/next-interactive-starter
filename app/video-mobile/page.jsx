@@ -6,17 +6,18 @@ const Page = () => {
   const [videoLoaded, setVideoLoaded] = useState(false)
 
   useEffect(() => {
+    // Get the video element
+    const videoElement = document.querySelector('video');
     // Function to handle the 'loadeddata' event of the video element
     const handleVideoLoad = () => {
       setVideoLoaded(true);
+      videoElement.play();
     };
-
-    // Get the video element
-    const videoElement = document.querySelector('video');
 
     // Check if the video is already loaded (in case it's cached)
     if (videoElement?.readyState >= 3) {
       setVideoLoaded(true);
+      videoElement.play();
     } else {
       // Add an event listener to listen for the 'loadeddata' event
       videoElement?.addEventListener('loadeddata', handleVideoLoad);
