@@ -34,7 +34,7 @@ export default function Page() {
     <Canvas
       shadows
       dpr={[1, perfSucks ? 1.5 : 2]}
-      eventSource={document.getElementById('root')}
+    //   eventSource={document.getElementById('root')}
       eventPrefix="client"
       camera={{ position: [20, 0.9, 20], fov: 26 }}
       className="!w-screen !h-screen"
