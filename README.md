@@ -48,7 +48,6 @@ _*To remove Preact and switch back to React simply remove the code in `next.conf
 ```
 |-- components
     |-- container.js *// A simple container component to wrap areas in a max width*
-    |-- fancyLink.js *// A simple wrapper around `next/link`
     |-- footer.js *// Example footer component*
     |-- header.js *// Example header component*
     |-- layout.js *// Layout component that can be used to wrap your pages in a global layout*
