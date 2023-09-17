@@ -1,23 +1,21 @@
-'use client'
-
 import { useRef, useEffect } from 'react'
-import Layout from '@/components/layout'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
-import Container from '@/components/container'
-import FancyLink from '@/components/fancyLink'
+import Layout from '@/components/utils/layout'
+import Header from '@/components/utils/header'
+import Footer from '@/components/utils/footer'
+import Container from '@/components/utils/container'
 import { fade } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 
-import applyAnimation from '@/components/applyAnimation'
+import applyAnimation from '@/components/utils/applyAnimation'
 
 // NEW
 
 import { gsap } from 'gsap/dist/gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+import Link from 'next/link'
 
-export default function Home() {
+export default function NewTriggerApply() {
   const animationObj = {
     '(min-width: 751px)': [
       () => {
@@ -302,12 +300,11 @@ export default function Home() {
                   </p>
                 </div>
 
-                <FancyLink
-                  destination="/about"
-                  a11yText="Navigate to the about page"
+                <Link
+                  href="/about"
                 >
                   About Page
-                </FancyLink>
+                </Link>
               </article>
             </Container>
           </m.main>

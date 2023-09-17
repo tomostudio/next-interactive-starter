@@ -1,23 +1,20 @@
-'use client'
-
 import { useRef, useEffect } from 'react'
-import Layout from '@/components/layout'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
-import Container from '@/components/container'
-import FancyLink from '@/components/fancyLink'
+import Layout from '@/components/utils/layout'
+import Header from '@/components/utils/header'
+import Footer from '@/components/utils/footer'
+import Container from '@/components/utils/container'
 import { fade } from '@/helpers/transitions'
-import PushScrollGlobal from '@/helpers/globalscroll'
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import ScrollTriggerWrapper from '@/components/scrolltrigger.js'
-import { applyAnimation } from '@/components/scrollTriggerAnim'
+import ScrollTriggerWrapper from '@/components/utils/scrolltrigger.jsx'
+import Lenis from '@studio-freight/lenis'
+import Link from 'next/link'
 
-export default function Home() {
+export default function LenisWithGsap() {
   gsap.registerPlugin(ScrollTrigger)
+  const lenis = useRef(null)
 
   const containerRef = useRef(null)
 
@@ -108,7 +105,23 @@ export default function Home() {
     ],
   }
 
+  const update = (time, deltaTime, frame) => {
+    lenis.current.raf(time)
+  }
+
   useEffect(() => {
+    lenis.current = new Lenis({
+      duration: 3,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+    })
+
+    function raf(time) {
+      lenis.current.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
     window.addEventListener('LocoCall', (e) => {
       console.log(' triggered', e.detail)
     })
@@ -311,12 +324,11 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <FancyLink
-                    destination="/about"
-                    a11yText="Navigate to the about page"
+                  <Link
+                    href="/about"
                   >
                     About Page
-                  </FancyLink>
+                  </Link>
                 </article>
               </Container>
             </m.main>

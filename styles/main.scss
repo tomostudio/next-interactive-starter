@@ -1,0 +1,19 @@
+/* Webfonts */
+@import '_fonts.scss';
+
+/* Tailwind base/components */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Custom Style Imports */
+@import '_utils.scss';
+@import '_locomotive.scss';
+
+/* Tailwind Utilities */
+@import 'tailwindcss/utilities';
+
+
+/* Simple defaults */
+body {
+  @apply font-sans antialiased text-black bg-white;
+}

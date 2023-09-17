@@ -1,9 +1,9 @@
-import "@/styles/main.css";
+import "@/styles/main.scss";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 import SEO from "@/helpers/seo.config";
-import { AppWrapper } from "../context/state.js";
+import { AppWrapper } from "context/state";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();

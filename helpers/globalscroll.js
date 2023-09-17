@@ -1,6 +1,6 @@
+import { useAppContext } from 'context/state';
 import { useEffect } from 'react'
 import { useLocomotiveScroll } from 'react-locomotive-scroll'
-import { useAppContext } from '../context/state.js';
 
 export default function PushScrollGlobal() {
   const { scroll } = useLocomotiveScroll();

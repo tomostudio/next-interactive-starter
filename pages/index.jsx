@@ -1,9 +1,8 @@
 import { useRef, useEffect } from 'react'
-import Layout from '@/components/layout'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
-import Container from '@/components/container'
-import FancyLink from '@/components/fancyLink'
+import Layout from '@/components/utils/layout'
+import Header from '@/components/utils/header'
+import Footer from '@/components/utils/footer'
+import Container from '@/components/utils/container'
 import { fade } from '@/helpers/transitions'
 import PushScrollGlobal from '@/helpers/globalscroll'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
@@ -11,8 +10,8 @@ import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import ScrollTriggerWrapper from '@/components/scrolltrigger.js'
-import { applyAnimation } from '@/components/scrollTriggerAnim'
+import ScrollTriggerWrapper from '@/components/utils/scrolltrigger.jsx'
+import Link from 'next/link'
 
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger)
@@ -28,7 +27,7 @@ export default function Home() {
         const settings = {
           scrollTrigger: {
             id: id,
-            trigger: '.scrollsection', // which page section will be tracked as the scroll trigger
+            trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
             scroller: '#scroll-container', // id of scroll container
             scrub: true,
             start: 'top 0%',
@@ -70,7 +69,7 @@ export default function Home() {
         const settings = {
           scrollTrigger: {
             id: id,
-            trigger: '.scrollsection', // which page section will be tracked as the scroll trigger
+            trigger: document.querySelector('.scrollsection'), // which page section will be tracked as the scroll trigger
             scroller: '#scroll-container', // id of scroll container
             scrub: true,
             start: 'top 0%',
@@ -110,6 +109,14 @@ export default function Home() {
     window.addEventListener('LocoCall', (e) => {
       console.log(' triggered', e.detail)
     })
+
+    let ctx = gsap.context(() => {})
+    return () => {
+      window.removeEventListener('LocoCall', (e) => {
+        console.log(' triggered', e.detail)
+      })
+      ctx.revert()
+    }
   }, [])
 
   return (
@@ -117,7 +124,7 @@ export default function Home() {
       <NextSeo title="Home" />
 
       <LocomotiveScrollProvider
-        options={{ smooth: false, lerp: 0.05 }}
+        options={{ smooth: true, lerp: 0.05 }}
         containerRef={containerRef}
         watch={[]}
       >
@@ -150,7 +157,7 @@ export default function Home() {
                     <Container>
                       <article>
                         <h1 className="font-bold text-2xl md:text-3xl xl:text-4xl mb-4">
-                          LOCOMOTIVE WITH SCROLL TRIGGER NO SMOOTH
+                          Next x Tailwind x Motion x Locomotive
                         </h1>
                         <div className="content max-w-3xl mb-4">
                           <h2>Some example content</h2>
@@ -338,12 +345,11 @@ export default function Home() {
                           </p>
                         </div>
 
-                        <FancyLink
-                          destination="/about"
-                          a11yText="Navigate to the about page"
+                        <Link
+                          href="/about"
                         >
                           About Page
-                        </FancyLink>
+                        </Link>
                       </article>
                     </Container>
                   </m.main>
