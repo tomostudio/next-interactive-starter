@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 
 const AppContext = createContext();
 
-export function AppWrapper({ children }) {
+export function ContextWrapper({ children }) {
   const [scrollState, setScrollState] = useState(null);
 
   return (

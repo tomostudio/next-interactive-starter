@@ -28,16 +28,6 @@ export default function Header() {
             >
               About
             </Link>
-            <Link
-              href="/notion-post"
-            >
-              Notion Post
-            </Link>
-            <Link
-              href="/sanity-post"
-            >
-              Sanity Post
-            </Link>
           </nav>
         </div>
       </Container>

@@ -1,11 +1,10 @@
 module.exports = {
   mode: "jit",
-  purge: [
-    "./app/**/*.{js,ts,jsx,tsx}", // Note the addition of the `app` directory.,
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: false,
+  media: false,
   theme: {
     fontFamily: {
       sans: ["Arial", "sans-serif"],
