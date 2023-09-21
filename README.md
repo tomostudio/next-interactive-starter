@@ -1,25 +1,19 @@
 # Next Interactive Starter
 
 Demo: [INCOMING]
-A [Next.js](https://nextjs.org/) boilerplate with [TailwindCSS](https://tailwindcss.com/) [Framer Motion](https://www.framer.com/motion/),  [Locomotive Scroll](https://locomotivemtl.github.io/locomotive-scroll/) and [GSAP Scroll Trigger](https://github.com/greensock/GSAP).
+A [Next.js](https://nextjs.org/) boilerplate with [TailwindCSS](https://tailwindcss.com/) [Framer Motion](https://www.framer.com/motion/),  [Locomotive Scroll](https://locomotivemtl.github.io/locomotive-scroll/), [Sanity CMS](https://sanity.io) and [GSAP Scroll Trigger](https://github.com/greensock/GSAP).
 A Fork from [Samuel Goddard Next Boilerplate](https://github.com/samuelgoddard/next-tailwind-motion.git).
 
-## ✨ Features
-- [Next](https://nextjs.org/) 11
-- [Tailwind](https://tailwindcss.com/) (With [JIT](https://tailwindcss.com/docs/just-in-time-mode) mode enabled)
-- Custom [PostCSS](https://postcss.org/) setup preconfigured to allow for `@import` and simple CSS nesting
-- [Framer Motion 4](https://www.framer.com/motion/) (With [LazyMotion](https://www.framer.com/api/motion/lazy-motion/) setup for smaller bundle sizes)
-- [Preact](https://preactjs.com/) preconfigured instead of React for smaller bundle size*
+## ✨ Featueres
+- [Next 13](https://nextjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [SASS](https://sass-lang.com/)
+- [Sanity CMS](https://sanity.io)
+- [Framer Motion](https://www.framer.com/motion/) (With [LazyMotion](https://www.framer.com/api/motion/lazy-motion/) setup for smaller bundle sizes)
 - SEO preconfigured with [next-seo](https://github.com/garmeeh/next-seo)
 - [Module Aliasing](https://nextjs.org/docs/advanced-features/module-path-aliases) preconfigured with `jsconfig.json`
 - [Locomotive Scroll](https://locomotivemtl.github.io/locomotive-scroll/) preconfigured for smooth, lerp based page scrolling
--  [GSAP Scroll Trigger](https://github.com/greensock/GSAP) preconfigured for custom scroll animation.
-
-_*To remove Preact and switch back to React simply remove the code in `next.config.js`_
-
-### Roadmap / Coming Soon...
-- Feature branch with [Sanity](https://www.sanity.io/) 
-- Feature branch with [Netlify CMS](https://www.netlifycms.org/) 
+- [GSAP Scroll Trigger](https://github.com/greensock/GSAP) preconfigured for custom scroll animation.
 
 ## 🚀 Quick start
 
@@ -47,11 +41,15 @@ _*To remove Preact and switch back to React simply remove the code in `next.conf
 ## 🗄 Directory Structure
 ```
 |-- components
-    |-- container.js *// A simple container component to wrap areas in a max width*
+    |-- modules
+    |-- utils
+    |-- container.js *// A simple container component to wrap areas in a max width
     |-- footer.js *// Example footer component*
     |-- header.js *// Example header component*
+    |-- seo.js *// Example seo component*
     |-- layout.js *// Layout component that can be used to wrap your pages in a global layout*
     |-- scrolltrigger.js *// A container to enable scrolltrigger interaction*
+    |-- applyAnimation.js *// A container to enable scrolltrigger interaction with simple implementation*
 |-- helpers
     |-- seo.config.js *// default SEO configuration helper, imported in `pages/_app.js`*
     |-- transitions.js *// re-usable framer motion transition helper with a basic 'fade' transition to get started*
@@ -65,10 +63,10 @@ _*To remove Preact and switch back to React simply remove the code in `next.conf
     |-- index.js
 |-- public *// Next public assets*
 |-- styles
-    |-- _locomotive.css *// custom locomotive scroll styles*
-    |-- _fonts.css *// custom webfont styles*
-    |-- _typography.css *// custom typographical styles*
-    |-- main.css *// Tailwind init and custom css imports*
+    |-- _locomotive.scss *// custom locomotive scroll styles*
+    |-- _fonts.scss *// custom webfont styles*
+    |-- _typography.scss *// custom typographical styles*
+    |-- main.scss *// Tailwind init and custom css imports*
 |-- .gitignore
 |-- jsconfig.json *// module aliasing*
 |-- postcss.config.js *// Tailwind, CSS import, CSS nesting init*

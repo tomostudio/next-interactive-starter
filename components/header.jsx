@@ -1,4 +1,4 @@
-import Container from "@/components/utils/container";
+import Container from "@/components/container";
 import Link from "next/link";
 
 export default function Header() {
@@ -22,11 +22,35 @@ export default function Header() {
             <Link href="/">
               Home
             </Link>
-
             <Link
-              href="/about"
+              href="/alt/lenis-with-gsap"
             >
-              About
+              Lenis with GSAP
+            </Link>
+            <Link
+              href="/alt/loco-no-smooth"
+            >
+              Loco no Smooth
+            </Link>
+            <Link
+              href="/alt/new-loco-trigger"
+            >
+              New Loco Trigger
+            </Link>
+            <Link
+              href="/alt/new-trigger-apply"
+            >
+              New Trigger Apply
+            </Link>
+            <Link
+              href="/alt/new-trigger"
+            >
+              New Trigger
+            </Link>
+            <Link
+              href="/alt/no-loco"
+            >
+              No Loco
             </Link>
           </nav>
         </div>

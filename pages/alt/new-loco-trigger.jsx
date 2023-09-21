@@ -1,8 +1,8 @@
 import { useRef, useEffect } from 'react'
-import Layout from '@/components/utils/layout'
-import Header from '@/components/utils/header'
-import Footer from '@/components/utils/footer'
-import Container from '@/components/utils/container'
+import Layout from '@/components/layout'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+import Container from '@/components/container'
 import { fade } from '@/helpers/transitions'
 
 import {
@@ -255,12 +255,6 @@ export default function NewLocoTrigger() {
                           laborum.
                         </p>
                       </div>
-
-                      <Link
-                        href="/about"
-                      >
-                        About Page
-                      </Link>
                     </article>
                   </Container>
                 </m.main>

@@ -1,14 +1,14 @@
 import { useRef, useEffect } from 'react'
-import Layout from '@/components/utils/layout'
-import Header from '@/components/utils/header'
-import Footer from '@/components/utils/footer'
-import Container from '@/components/utils/container'
+import Layout from '@/components/layout'
+import Header from '@/components/header'
+import Footer from '@/components/footer'
+import Container from '@/components/container'
 import { fade } from '@/helpers/transitions'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import ScrollTriggerWrapper from '@/components/utils/scrolltrigger.jsx'
+import ScrollTriggerWrapper from '@/components/scrolltrigger.jsx'
 import Link from 'next/link'
 
 export default function NoLoco() {
@@ -305,12 +305,6 @@ export default function NoLoco() {
                       culpa qui officia deserunt mollit anim id est laborum.
                     </p>
                   </div>
-
-                  <Link
-                    href="/about"
-                  >
-                    About Page
-                  </Link>
                 </article>
               </Container>
             </m.main>
