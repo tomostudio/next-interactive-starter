@@ -1,8 +1,6 @@
 import '@/styles/main.scss'
 import { AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/router'
-import { DefaultSeo } from 'next-seo'
-import SEO from '@/helpers/seo.config'
 import { ContextWrapper } from 'context/state'
 
 export default function App({ Component, pageProps }) {
@@ -10,13 +8,15 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <DefaultSeo {...SEO} />
-
+      {router.pathname === '/admin/[[...index]]' ? (
+        <Component {...pageProps} />
+      ) : (
         <AnimatePresence mode={'wait'}>
           <ContextWrapper>
             <Component {...pageProps} key={router.asPath} />
           </ContextWrapper>
         </AnimatePresence>
+      )}
     </>
   )
 }

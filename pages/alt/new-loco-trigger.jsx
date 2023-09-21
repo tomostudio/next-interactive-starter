@@ -10,7 +10,7 @@ import {
   LocomotiveScrollProvider,
 } from 'react-locomotive-scroll'
 
-import PushScrollGlobal from '@/helpers/globalscroll'
+import PushScrollGlobal from '@/helpers/function/globalscroll'
 
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'

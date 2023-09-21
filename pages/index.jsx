@@ -4,7 +4,7 @@ import Header from '@/components/utils/header'
 import Footer from '@/components/utils/footer'
 import Container from '@/components/utils/container'
 import { fade } from '@/helpers/transitions'
-import PushScrollGlobal from '@/helpers/globalscroll'
+import PushScrollGlobal from '@/helpers/function/globalscroll'
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { NextSeo } from 'next-seo'
@@ -12,6 +12,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import ScrollTriggerWrapper from '@/components/utils/scrolltrigger.jsx'
 import Link from 'next/link'
+import SEO from '@/components/utils/seo'
 
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger)
@@ -121,8 +122,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <NextSeo title="Home" />
-
+      <SEO title="Home" webTitle="Next Starter" />
       <LocomotiveScrollProvider
         options={{ smooth: true, lerp: 0.05 }}
         containerRef={containerRef}
@@ -345,11 +345,7 @@ export default function Home() {
                           </p>
                         </div>
 
-                        <Link
-                          href="/about"
-                        >
-                          About Page
-                        </Link>
+                        <Link href="/about">About Page</Link>
                       </article>
                     </Container>
                   </m.main>

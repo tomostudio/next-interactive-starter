@@ -3,7 +3,7 @@ import { useEffect, forwardRef, useState } from 'react';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import isFunction from '@/helpers/isFunction';
+import isFunction from '@/helpers/function/isFunction';
 
 import React from 'react';
 
