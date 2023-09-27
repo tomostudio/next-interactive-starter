@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tomostudio-web",
+  "private_key_id": "6474144c098328279fdde42f4fae0e660606b7dc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCQZUqpcKe41b2T\n7Wm5UsqGYuzMiXny/DS47u6hmj71JwgQ2+ev9GFAJS1GZ4auyxVHejoqjCcLV9aZ\nVbmXaINX6Xn/SBRm/OMpbFcA/IOHmYE7aHu4pVRfLm2fEKVQRke3GWo6rJR7m7+x\nmtMXuOJ5PwiaW9Hu/psBKpvazVXf6BEyRTI8NZr+Sr94S3J9bHOdFMSLhkOWm0EV\nBUkhRQ31d3G6qPvvA8Pzjv/mhSROR3S5oBoMBJ8xGFm29xsqxuEpCkRi5AfeMpTI\n8K6v+ZKK3ngmnaTanm6tpXEF2aEMvN+4rouJBiCdOq0Qo11iUJGhY99zPkRf1zGS\nZH4w8WUBAgMBAAECggEAEJQYpOii0SV1PTk6dMUtLI3KG1fDcSME2KDSNCq2BMak\n9e6RpNGdotRB5P346DO37zt41y69Qt+ka3l8tAYTYnITiDxZ31M0r6pZOOtFHLoC\nrPP7lIEi9USq4GL0YAmZrUuVN0ReTezdbwJULzqSghI7JiHZsiN4X4NpXo9Jx0m9\nE3MzvjxJdsB0/rkABqccMqRlZ1vixdHAaob+tkzEHjq3vi6H4RNAl99KWk5eyME/\nB4iq1ni2udyumQ8NiDPO1BNBE8qbmfDtcwEuBpXKDLN4AQO1TDaOR275+J67c5xG\nO5iP/uWrMIsBAEPdOky3CWLL33Q3sKhAdrxh3pKpOwKBgQDIhy3HroOeGolZAP2g\nPAm6hcE56XwVwYS86dZpFHS0IF9TlZJH/u495Ikfwz3PoqB7RFErT7is4xzvTcob\nGbXHArggj5TXD9wELwtgiZm1fc5V0crey6Wi54q3Ht+Xr0n88briq+L8kPbEUMh8\n7vd6puLIlhXyxCRLcVIjCO5Q8wKBgQC4VvqpMMM69jtyTLVXprdTBBVl/9iare11\n4wrE/gyJ+VVb0EMVL8lB1wbAoUWx0avHZu1g11wMnkK15dyrt4r39hvNIqSOVNOv\naRp/eRsQ5rPO0w4zJ0BuE7v+n7F7WECxAdExKHlMj6cDqzmg+gKCQ5tLa29rlqGp\nnwKVTT+POwKBgQCMvLMYrhaZ5C35VYSr7Pc2/aD7sC7yZftvSv68iSrPMNk2pIci\nGH3E2pySukirbYwMd4owR6dpT4yDN6ldE9JMdlAcKilgNzVHim0FuA01H7Ks8Kzd\naTg6+R6WHwj2QIRBDrcHV3PbpzJJ3hiX9m+imXYZKZ0F4TtH56SqCh6YmQKBgAtV\n3egVhYvUpGcs7GHNcKx8Lcyt5OXuGBINuhXPAXpiiKsyrU1aOOgBjvq9cAm1OPj0\nDVjNJW3pNXT2A5HToYoJ6j+9B51w/etlbSm1isKJTTlEpTTkDwQ11nOb4lARZzj7\nQZ/iO0NH+h8xokOR3CGigqQqoRlek+ZYTtJbg7MNAoGAG21fOhLdopG3GXJVuIYF\nRnqHSM9/fXrEIf87k24Ks0hsegnLdkwgDCLyGv6M7u+NNDTIcnMnC4z+4mPvAbCS\nV8m4+FDoi0P0lHbgonUyHHOyLtKPxuEwt8Sn0KWLD3p219rdO1hJtGtzJckhnh5N\nRm7I48gCb06RpR8sm1OYcTM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tomostudio-web-969@tomostudio-web.iam.gserviceaccount.com",
+  "client_id": "109769588421023938737",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tomostudio-web-969%40tomostudio-web.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
