@@ -44,6 +44,7 @@
     "next": "^13.5.3",
     "next-sanity": "5.5.4",
     "next-seo": "^6.1.0",
+    "nodemailer": "^6.9.7",
     "notion-to-md": "^2.5.5",
     "postcss-import": "^15.1.0",
     "postcss-nested": "^6.0.0",
