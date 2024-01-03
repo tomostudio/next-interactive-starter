@@ -12,6 +12,8 @@ import { schemaTypes } from "./sanity/schemas";
 import {apiVersion, dataset, projectId} from './sanity/env'
 import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 import deskStructure from './sanity/deskStructure';
+import { dashboardTool } from '@sanity/dashboard';
+import { jokesWidget } from 'sanity-plugin-dashboard-dad-jokes';
 
 export default defineConfig({
   title: "Sanity Starter",
@@ -26,6 +28,11 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
     vercelDeployTool(),
+    dashboardTool({
+      widgets: [
+          jokesWidget(),
+      ],
+    }),
   ],
   schema: {
     types: schemaTypes,

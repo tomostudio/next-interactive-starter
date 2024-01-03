@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextSeo } from 'next-seo'
 import Head from 'next/head'
-import urlFor from '@/helpers/sanity/urlFor'
+import { urlForImage } from '@/sanity/lib/image'
 
 const SEO = ({
   inputSEO = '',
@@ -19,10 +19,10 @@ const SEO = ({
     : ''
   const image = inputSEO
     ? inputSEO.seo_image?.asset
-      ? urlFor(inputSEO.seo_image).auto("format").width(800).url()
+      ? urlForImage(inputSEO.seo_image).auto("format").width(800).url()
       : ''
     : defaultSEO.seo_image?.asset
-    ? urlFor(defaultSEO.seo_image).auto("format").width(800).url()
+    ? urlForImage(defaultSEO.seo_image).auto("format").width(800).url()
     : ''
 
   const image_alt = inputSEO
