@@ -1,10 +1,8 @@
 import { defineType } from 'sanity'
 
-import blockContentType from './blockContent'
-
 export default defineType({
-  name: 'post',
-  title: 'Post',
+  name: 'postList',
+  title: 'Post List',
   type: 'document',
   fields: [
     {
@@ -16,10 +14,25 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      description:
+        "Slug is generated from Title, Lower Characters (a-z), Numericals (0-9), dash (-) and must not start with a /, Minimum 3 Characters, eg: 'project-title'",
       options: {
         source: 'title',
         maxLength: 96,
       },
+      validation: (Rule) =>
+        Rule.custom((slug) => {
+          const regex = /^[a-z0-9](?:[a-z0-9]|-(?=[a-z0-9])){2,}$/i;
+          if (slug) {
+            if (slug.current.match(regex) !== null) {
+              return true
+            } else {
+              return 'Not a valid slug'
+            }
+          } else {
+            return 'Required'
+          }
+        }),
     },
     {
       name: 'mainImage',
@@ -39,7 +52,7 @@ export default defineType({
     {
       name: 'body',
       title: 'Body',
-      type: blockContentType.name,
+      type: 'blockContent',
     },
   ],
 
