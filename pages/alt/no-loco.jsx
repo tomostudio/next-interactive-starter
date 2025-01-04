@@ -30,6 +30,7 @@ export default function NoLoco() {
             scrub: true,
             start: 'top 0%',
             end: '+=100%',
+            markers: true
             // onUpdate: (e) => { console.log('1', Math.round(e.progress * 100)) }
           },
         }
