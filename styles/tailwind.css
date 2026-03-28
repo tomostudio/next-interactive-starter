@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Arial, sans-serif;
+  --font-mono: "Lucida Console", Courier, monospace;
+
+  --spacing-screen-half: 50vh;
+
+  --color-black: #000;
+  --color-white: #fff;
+  --color-example-color: #d18d67;
+  --color-example-color-light: #ffb288;
+  --color-example-color-dark: #ce8860;
+}
+
+:root {
+  --transition-property-background: background;
+}
+
+@utility transition-background {
+  transition-property: var(--transition-property-background);
+}
+
+/* Simple defaults */
+body {
+  @apply font-sans antialiased text-black bg-white;
+}

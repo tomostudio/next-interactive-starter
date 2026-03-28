@@ -1,30 +1,40 @@
-import { useAppContext } from 'context/state';
+import { useAppContext } from 'context/state'
 import { useEffect } from 'react'
 import { useLocomotiveScroll } from 'react-locomotive-scroll'
 
 export default function PushScrollGlobal() {
-  const { scroll } = useLocomotiveScroll();
-  const appContext = useAppContext();
-
+  const { scroll } = useLocomotiveScroll()
+  const { setScrollState } = useAppContext()
 
   useEffect(() => {
-    if (scroll) {
-      // pass the scroll event to context
-      appContext.setScrollState(scroll);
-      //Create custom window event
-      //Trigger Scroll Event
-      scroll.on("scroll", (e) => {
-        const event = new CustomEvent('LocoScroll', { detail: e });
-        window.dispatchEvent(event);
-      });
-      //Trigger Call Event
-      scroll.on("call", (target, enter, element) => {
-        const event = new CustomEvent('LocoCall', { detail: {target, enter, element} });
-        window.dispatchEvent(event);
-      });
+    if (!scroll) {
+      return
     }
+
+    setScrollState(scroll)
+
+    const onScroll = (eventDetail) => {
+      const event = new CustomEvent('LocoScroll', { detail: eventDetail })
+      window.dispatchEvent(event)
+    }
+
+    const onCall = (target, enter, element) => {
+      const event = new CustomEvent('LocoCall', {
+        detail: { target, enter, element },
+      })
+      window.dispatchEvent(event)
+    }
+
+    scroll.on('scroll', onScroll)
+    scroll.on('call', onCall)
+
     return () => {
+      if (typeof scroll.off === 'function') {
+        scroll.off('scroll', onScroll)
+        scroll.off('call', onCall)
+      }
     }
-  }, [scroll])
-  return <></>
+  }, [scroll, setScrollState])
+
+  return null
 }

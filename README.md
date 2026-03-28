@@ -1,16 +1,21 @@
 # Next Interactive Starter
 
 Demo: [INCOMING]
-A [Next.js](https://nextjs.org/) boilerplate with [TailwindCSS](https://tailwindcss.com/) [Framer Motion](https://www.framer.com/motion/),  [Locomotive Scroll](https://locomotivemtl.github.io/locomotive-scroll/), [Sanity CMS](https://sanity.io) and [GSAP Scroll Trigger](https://github.com/greensock/GSAP).
+A [Next.js](https://nextjs.org/) boilerplate with App Router, [TailwindCSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/), [Locomotive Scroll](https://locomotivemtl.github.io/locomotive-scroll/), [Sanity CMS](https://sanity.io), and [GSAP Scroll Trigger](https://github.com/greensock/GSAP).
 A Fork from [Samuel Goddard Next Boilerplate](https://github.com/samuelgoddard/next-tailwind-motion.git).
 
-## ✨ Featueres
-- [Next 13](https://nextjs.org/)
-- [Tailwind](https://tailwindcss.com/)
-- [SASS](https://sass-lang.com/)
+## ✨ Features
+- [Next 16 App Router](https://nextjs.org/)
+- [Tailwind 4](https://tailwindcss.com/)
+- Tailwind v4 CSS-first setup (`@import "tailwindcss";`, no `tailwind.config.js` required)
+- [SASS](https://sass-lang.com/) for global/custom styles
 - [Sanity CMS](https://sanity.io)
 - [Framer Motion](https://www.framer.com/motion/) (With [LazyMotion](https://www.framer.com/api/motion/lazy-motion/) setup for smaller bundle sizes)
-- SEO preconfigured with [next-seo](https://github.com/garmeeh/next-seo)
+- SEO preconfigured with Next.js Metadata API (`app/layout.jsx`) + route-level canonical URLs
+- Dynamic `robots.txt` via App Router route handler:
+  - Preview mode (`NEXT_PUBLIC_PREVIEW_NO_CRAWL=true`) => `noindex, nofollow`
+  - Production mode => crawlable + `/admin` blocked
+- Dynamic `sitemap.xml` via App Router route handler (homepage + all `/alt/*` routes)
 - [Module Aliasing](https://nextjs.org/docs/advanced-features/module-path-aliases) preconfigured with `jsconfig.json`
 - [Locomotive Scroll](https://locomotivemtl.github.io/locomotive-scroll/) preconfigured for smooth, lerp based page scrolling
 - [GSAP Scroll Trigger](https://github.com/greensock/GSAP) preconfigured for custom scroll animation.
@@ -29,49 +34,67 @@ A Fork from [Samuel Goddard Next Boilerplate](https://github.com/samuelgoddard/n
 
     ```sh
     cd next-interactive-starter/
-    
+
+    nvm use
     yarn
     yarn run dev
     ```
 
 3.  **Open the source code and start editing!**
 
-    Your site is will be running at `http://localhost:3000`
+    Your site will run at `http://localhost:3000`
+
+## ⚙️ Environment
+
+Create `.env.local` as needed:
+
+```sh
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_PREVIEW_NO_CRAWL=false
+
+NEXT_PUBLIC_SANITY_PROJECT_ID=...
+NEXT_PUBLIC_SANITY_DATASET=...
+NEXT_PUBLIC_SANITY_API_VERSION=2023-11-06
+```
+
+- Set `NEXT_PUBLIC_PREVIEW_NO_CRAWL=true` for preview environments to output `noindex, nofollow`.
+- Set it back to `false` (or unset) for production so metadata remains crawlable.
+- Set `NEXT_PUBLIC_SITE_URL` to your public domain so canonical URL, OpenGraph URL, `robots.txt`, and `sitemap.xml` are correct.
 
 ## 🗄 Directory Structure
 ```
+|-- app
+    |-- home/components/* *// route-local atomic components for homepage*
+    |-- alt/<slug>/components/templates/* *// route-local components per alt page*
+    |-- admin/[[...index]]/components/templates/* *// route-local studio template*
+    |-- layout.jsx *// global layout + metadata config*
+    |-- page.jsx *// homepage route wrapper*
+    |-- robots.js *// dynamic robots.txt output*
+    |-- sitemap.js *// dynamic sitemap.xml output*
 |-- components
-    |-- modules
-    |-- utils
-    |-- container.js *// A simple container component to wrap areas in a max width
-    |-- footer.js *// Example footer component*
-    |-- header.js *// Example header component*
-    |-- seo.js *// Example seo component*
-    |-- layout.js *// Layout component that can be used to wrap your pages in a global layout*
-    |-- scrolltrigger.js *// A container to enable scrolltrigger interaction*
-    |-- applyAnimation.js *// A container to enable scrolltrigger interaction with simple implementation*
+    |-- atoms/container.jsx
+    |-- molecules/
+    |-- organisms/header.jsx
+    |-- organisms/footer.jsx
+    |-- organisms/scrolltrigger.jsx
+    |-- templates/layout.jsx
 |-- helpers
-    |-- seo.config.js *// default SEO configuration helper, imported in `pages/_app.js`*
-    |-- transitions.js *// re-usable framer motion transition helper with a basic 'fade' transition to get started*
-    |-- globalscroll.js *// push locomotive scroll event to context or global window event*
+    |-- preset/transitions.jsx
+    |-- function/globalscroll.jsx
 |-- context
-    |-- state.js  *// default react context initiation, currently preset to store locomotive scroll event as a context*
-|-- pages
-    |-- _app.js *// Includes default SEO component, Framer motion AnimatePresence & Locomotive Scroll init*
-    |-- _document.js *// Default Next document component*
-    |-- about.js
-    |-- index.js
+    |-- state.jsx
 |-- public *// Next public assets*
 |-- styles
-    |-- _locomotive.scss *// custom locomotive scroll styles*
-    |-- _fonts.scss *// custom webfont styles*
-    |-- _typography.scss *// custom typographical styles*
-    |-- main.scss *// Tailwind init and custom css imports*
+    |-- tailwind.css
+    |-- main.scss
+    |-- _locomotive.scss
+    |-- _fonts.scss
+    |-- _utils.scss
 |-- .gitignore
+|-- .nvmrc
 |-- jsconfig.json *// module aliasing*
-|-- postcss.config.js *// Tailwind, CSS import, CSS nesting init*
-|-- next.config.js *// Prefer Preact to React*
+|-- postcss.config.js
+|-- next.config.js
 |-- package.json
 |-- README.md
-|-- tailwind.config.js
 ```

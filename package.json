@@ -1,6 +1,6 @@
 {
   "name": "next-interactive-boilerplate",
-  "description": "A simple Next.js starter kit with TailwindCSS (JIT) and Framer Motion preconfigured",
+  "description": "A Next.js App Router starter kit with TailwindCSS, Sanity, Framer Motion, and GSAP preconfigured",
   "author": "Hendhy Hutomo <hello@hendhyhutomo.com><hendhy@tomostudio.id>, Sam Goddard <hello@samgoddard.co.uk> (https://samgoddard.co.uk)",
   "version": "1.0.0",
   "repository": {
@@ -18,42 +18,32 @@
   ],
   "homepage": "https://next-interactive-starter.vercel.app/",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start"
   },
   "dependencies": {
-    "@portabletext/react": "^3.0.11",
-    "@react-three/drei": "^9.83.9",
-    "@react-three/fiber": "^8.14.2",
-    "@sanity/icons": "^2.8.0",
-    "@sanity/image-url": "^1.0.2",
-    "@sanity/types": "^3.23.4",
-    "@sanity/ui": "^1.9.3",
-    "@sanity/vision": "^3.23.4",
-    "@studio-freight/lenis": "^1.0.23",
-    "axios": "^1.6.3",
-    "framer-motion": "^10.16.16",
-    "gsap": "^3.12.4",
-    "locomotive-scroll": "^4.1.4",
-    "matter-js": "^0.19.0",
-    "next": "^14.0.4",
-    "next-sanity": "7.0.5",
-    "next-seo": "^6.4.0",
-    "react": "^18",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.12.0",
+    "@sanity/client": "^7.20.0",
+    "@sanity/image-url": "^2.0.3",
+    "@sanity/vision": "^5.18.0",
+    "@studio-freight/lenis": "^1.0.42",
+    "framer-motion": "^12.38.0",
+    "gsap": "^3.14.2",
+    "locomotive-scroll": "4.1.4",
+    "next": "^16.2.1",
+    "next-sanity": "^12.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-icons": "^5.6.0",
     "react-locomotive-scroll": "^0.2.2",
-    "sanity": "^3.16.7",
-    "sanity-plugin-vercel-deploy": "^3.3.4",
-    "sass": "^1.69.6",
-    "styled-components": "^6.1.6"
+    "refractor": "3.6.0",
+    "sanity": "^5.18.0",
+    "sass": "^1.98.0",
+    "styled-components": "^6.3.12"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.16",
-    "next-transpile-modules": "^10.0.1",
-    "postcss": "^8.4.32",
-    "tailwindcss": "^3.4.0",
-    "three": "^0.156.1"
+    "@tailwindcss/postcss": "^4.2.2",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2"
   }
 }
