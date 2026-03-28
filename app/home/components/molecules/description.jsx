@@ -2,7 +2,7 @@ export default function Description() {
   return (
     <div className="content max-w-3xl space-y-6">
       <p>
-        Starter ini sudah dipindahkan ke App Router (`app/`) dan tetap
+        Starter ini menggunakan App Router (`app/`) dan tetap
         mempertahankan integrasi animasi berbasis Framer Motion + GSAP
         ScrollTrigger dengan Locomotive Scroll.
       </p>
