@@ -1,6 +1,6 @@
 # Next Interactive Starter
 
-Demo: [INCOMING]
+Demo: [https://starter.tomostudio.id/](https://starter.tomostudio.id/)
 A [Next.js](https://nextjs.org/) boilerplate with App Router, [TailwindCSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/), [Locomotive Scroll](https://locomotivemtl.github.io/locomotive-scroll/), [Sanity CMS](https://sanity.io), and [GSAP Scroll Trigger](https://github.com/greensock/GSAP).
 A Fork from [Samuel Goddard Next Boilerplate](https://github.com/samuelgoddard/next-tailwind-motion.git).
 

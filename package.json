@@ -16,7 +16,7 @@
     "motion",
     "preact"
   ],
-  "homepage": "https://next-interactive-starter.vercel.app/",
+  "homepage": "https://starter.tomostudio.id/",
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
