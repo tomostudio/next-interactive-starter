@@ -1,0 +1,6 @@
+interface:
+  display_name: "Docker Backend"
+  short_description: "Susun Dockerfile backend yang kompatibel Linux"
+  default_prompt: "Use $ops-docker to create or update a production-ready backend Dockerfile for this repository."
+policy:
+  allow_implicit_invocation: true

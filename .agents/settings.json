@@ -1,0 +1,39 @@
+{
+  "$schema": "Konfigurasi project-specific untuk agent. Ubah file ini saat copy ke project lain.",
+  "project": {
+    "name": "next-interactive-starter",
+    "description": "Next.js starter for vibe coding workflow",
+    "version": "0.1.0"
+  },
+  "repo": {
+    "owner": "",
+    "name": "next-interactive-starter"
+  },
+  "stack": {
+    "frontend": "Next.js (App Router)",
+    "language": "TypeScript",
+    "styling": "Tailwind CSS, SASS",
+    "packageManager": "yarn"
+  },
+  "onboarding": {
+    "startCommands": [
+      "mulai",
+      "start",
+      "mulai vibe coding",
+      "start vibe coding",
+      "mulai dulu",
+      "yuk mulai"
+    ],
+    "statusScript": "scripts/start-session.mjs",
+    "memoryPath": ".agents/MEMORY.md",
+    "mcpConfigPath": ".mcp.json",
+    "preferredNextSteps": [
+      "setup-mcp",
+      "resume-last-task",
+      "breakdown-new-feature"
+    ]
+  },
+  "mcp": {
+    "required": ["github", "figma"]
+  }
+}

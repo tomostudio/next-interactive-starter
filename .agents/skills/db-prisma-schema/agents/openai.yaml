@@ -1,0 +1,6 @@
+interface:
+  display_name: "DB Prisma Schema"
+  short_description: "Ubah schema Prisma dengan migrasi PostgreSQL aman"
+  default_prompt: "Use $db-prisma-schema to update Prisma schema changes with safe PostgreSQL migration guidance for this repository."
+policy:
+  allow_implicit_invocation: true

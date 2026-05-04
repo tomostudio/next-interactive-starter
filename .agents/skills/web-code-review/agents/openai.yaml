@@ -1,0 +1,6 @@
+interface:
+  display_name: "Web Code Review"
+  short_description: "Review kode frontend dengan standar senior lead yang tegas"
+  default_prompt: "Use $web-code-review to review frontend changes in this repository with a strict senior-lead mindset."
+policy:
+  allow_implicit_invocation: true

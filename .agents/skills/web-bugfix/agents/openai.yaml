@@ -1,0 +1,6 @@
+interface:
+  display_name: "Web Bugfix"
+  short_description: "Fix bug frontend dengan perubahan minim touch dan verifikasi teliti"
+  default_prompt: "Use $web-bugfix to fix frontend bugs in this repository with minimal touch and careful impact checks."
+policy:
+  allow_implicit_invocation: true

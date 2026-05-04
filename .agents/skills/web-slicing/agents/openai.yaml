@@ -1,0 +1,6 @@
+interface:
+  display_name: "Web Slicing"
+  short_description: "Implementasi UI dari desain secara presisi"
+  default_prompt: "Use $web-slicing to implement frontend slicing work from a design, screenshot, or Figma reference for this repository."
+policy:
+  allow_implicit_invocation: true

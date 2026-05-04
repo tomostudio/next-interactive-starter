@@ -1,0 +1,6 @@
+interface:
+  display_name: "OpenAPI Split"
+  short_description: "Kelola dokumentasi OpenAPI split per fitur"
+  default_prompt: "Use $docs-openapi to write or update split OpenAPI paths and shared components for feature-level API changes."
+policy:
+  allow_implicit_invocation: true

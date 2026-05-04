@@ -1,0 +1,6 @@
+interface:
+  display_name: "API Bugfix"
+  short_description: "Fix bug backend dengan perubahan minim touch dan verifikasi teliti"
+  default_prompt: "Use $api-bugfix to fix backend bugs in this repository with minimal touch and careful impact checks."
+policy:
+  allow_implicit_invocation: true

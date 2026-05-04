@@ -1,0 +1,6 @@
+interface:
+  display_name: "Web API Integrated"
+  short_description: "Integrasikan endpoint ke frontend dengan hooks dan schema"
+  default_prompt: "Use $web-api-integrated to integrate API endpoints into the frontend with schemas, response types, constants, and react-query hooks."
+policy:
+  allow_implicit_invocation: true

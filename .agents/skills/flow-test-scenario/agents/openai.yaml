@@ -1,0 +1,6 @@
+interface:
+  display_name: "QA Test Scenario"
+  short_description: "Susun manual QA scenario dan publish ke Notion"
+  default_prompt: "Use $flow-test-scenario to create manual QA scenarios from the PRD and TRD, then publish and link them in the required systems."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Feature Breakdown"
+  short_description: "Pecah ide fitur jadi PRD, TRD, dan registry entry"
+  default_prompt: "Use $flow-breakdown-feature to turn a feature idea into a documented PRD, TRD, and registry entry for this repository."
+policy:
+  allow_implicit_invocation: true

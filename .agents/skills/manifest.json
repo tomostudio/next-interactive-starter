@@ -1,0 +1,152 @@
+{
+  "$schema": "Registry semua skill yang tersedia di project ini.",
+  "skills": [
+    {
+      "name": "web-api-integrated",
+      "description": "Mengintegrasikan API ke frontend dengan Zod schema, response types, constants, dan react-query hooks. Gunakan saat implementasi endpoint dari API contract, Postman, atau Swagger.",
+      "scope": "frontend",
+      "path": ".agents/skills/web-api-integrated",
+      "whenToUse": "Integrasi endpoint ke frontend dengan schema, types, constants, dan hooks"
+    },
+    {
+      "name": "web-bugfix",
+      "description": "Memperbaiki bug frontend dengan perubahan seminimal mungkin, menjaga surface lain tetap stabil, lalu memastikan schema, types, hooks, constants, tests, dan dokumentasi terkait ikut sinkron bila terdampak.",
+      "scope": "frontend",
+      "whenToUse": "Fix bug frontend dengan perubahan minim touch dan sinkronisasi contract yang terdampak",
+      "path": ".agents/skills/web-bugfix"
+    },
+    {
+      "name": "web-code-review",
+      "description": "Melakukan code review frontend dengan standar senior lead yang tegas, fokus pada bug, regresi, risiko arsitektur, dan gap test di apps/web serta shared contract yang dipakai frontend.",
+      "scope": "frontend",
+      "whenToUse": "Review kode frontend secara tegas sebelum merge atau saat audit kualitas implementasi",
+      "path": ".agents/skills/web-code-review"
+    },
+    {
+      "name": "web-seo-geo-friendly",
+      "description": "Mengoptimalkan halaman publik Next.js App Router agar SEO-friendly dan GEO-friendly (Generative Engine Optimization). Gunakan saat user meminta optimasi SEO/GEO secara spesifik pada halaman publik.",
+      "scope": "frontend",
+      "path": ".agents/skills/web-seo-geo-friendly",
+      "whenToUse": "Optimasi SEO dan GEO untuk halaman publik Next.js"
+    },
+    {
+      "name": "web-slicing",
+      "description": "Mengubah desain screenshot/Figma menjadi UI frontend pixel-perfect dengan komponen reusable. Gunakan saat task fokus pada implementasi tampilan dan layout halaman.",
+      "scope": "frontend",
+      "path": ".agents/skills/web-slicing",
+      "whenToUse": "Implementasi UI dari desain, screenshot, atau Figma"
+    },
+    {
+      "name": "api-bugfix",
+      "description": "Memperbaiki bug backend dengan perubahan seminimal mungkin, menjaga layer lain tetap stabil, lalu memastikan validator, DTO, OpenAPI, shared schema/types, tests, dan dokumentasi terkait ikut sinkron bila terdampak.",
+      "scope": "backend",
+      "whenToUse": "Fix bug backend dengan perubahan minim touch dan sinkronisasi contract yang terdampak",
+      "path": ".agents/skills/api-bugfix"
+    },
+    {
+      "name": "api-code-review",
+      "description": "Melakukan code review backend dengan standar senior lead yang tegas, fokus pada bug, regresi, contract drift, risiko clean architecture, dan gap test di apps/api serta shared contract terkait.",
+      "scope": "backend",
+      "whenToUse": "Review kode backend secara tegas sebelum merge atau saat audit kualitas implementasi",
+      "path": ".agents/skills/api-code-review"
+    },
+    {
+      "name": "api-feature",
+      "description": "Mengimplementasikan fitur backend baru mengikuti Clean Architecture. Gunakan saat ada task terkait endpoint baru, use case, entity, repository, atau perubahan layer aplikasi.",
+      "scope": "backend",
+      "path": ".agents/skills/api-feature",
+      "whenToUse": "Implementasi fitur backend baru mengikuti Clean Architecture"
+    },
+    {
+      "name": "db-prisma-schema",
+      "description": "Menulis atau mengubah apps/api/prisma/schema.prisma beserta langkah migrasi yang aman untuk PostgreSQL. Gunakan saat ada perubahan model database, relasi, index, enum, atau kebutuhan sinkronisasi schema dengan domain layer.",
+      "scope": "backend",
+      "path": ".agents/skills/db-prisma-schema",
+      "whenToUse": "Perubahan `schema.prisma` dan validasi migrasi PostgreSQL"
+    },
+    {
+      "name": "docs-api-contract",
+      "description": "Menyusun API contract FE-BE dari PRD/TRD, flow halaman, atau desain. Gunakan saat perlu endpoint list, request-response schema, validasi, dan error contract yang konsisten.",
+      "scope": "docs",
+      "path": ".agents/skills/docs-api-contract",
+      "whenToUse": "Menyusun contract API dari PRD, TRD, atau desain"
+    },
+    {
+      "name": "docs-openapi",
+      "description": "Menulis atau memperbarui dokumentasi OpenAPI dalam format split per fitur di `docs/openapi`. Gunakan saat ada endpoint, request/response schema, atau contract API yang berubah.",
+      "scope": "docs",
+      "path": ".agents/skills/docs-openapi",
+      "whenToUse": "Menulis atau memperbarui dokumentasi OpenAPI split per fitur"
+    },
+    {
+      "name": "ops-docker",
+      "description": "Menulis atau mengubah Dockerfile untuk backend ini agar siap deploy di Linux. Gunakan saat task terkait containerization, optimasi image, atau build/runtime issue di container. Docker Compose dikelola oleh server — jangan ubah.",
+      "scope": "ops",
+      "path": ".agents/skills/ops-docker",
+      "whenToUse": "Menulis atau mengubah Dockerfile backend siap deploy Linux"
+    },
+    {
+      "name": "ops-mcp-setup",
+      "description": "Mengonfigurasi MCP server GitHub, Jira (Atlassian), Notion, dan Figma (opsional) di project ini agar skill flow dapat berjalan. Gunakan saat pertama kali setup project atau saat MCP belum terhubung.",
+      "scope": "ops",
+      "path": ".agents/skills/ops-mcp-setup",
+      "whenToUse": "Setup MCP GitHub, Jira, dan Notion untuk workflow repo ini"
+    },
+    {
+      "name": "flow-breakdown-feature",
+      "description": "Memecah ide fitur menjadi PRD dan TRD lengkap plus Feature ID terdaftar. Gunakan saat fitur baru belum terdokumentasi dan belum masuk registry.",
+      "scope": "flow",
+      "path": ".agents/skills/flow-breakdown-feature",
+      "whenToUse": "Pecah ide fitur menjadi PRD, TRD, dan registry entry"
+    },
+    {
+      "name": "flow-session-start",
+      "description": "Menangani perintah Mulai atau Start untuk onboarding repo: cek MCP, registry, memory, dan status kerja lalu arahkan user ke next step yang tepat.",
+      "scope": "flow",
+      "whenToUse": "Onboarding sesi saat user mengetik Mulai, Start, atau Mulai Vibe Coding",
+      "path": ".agents/skills/flow-session-start"
+    },
+    {
+      "name": "flow-task-completion",
+      "description": "Menyelesaikan issue GitHub atau task Jira end-to-end dari branching sampai PR dan status update. Gunakan saat user meminta eksekusi task implementasi lengkap berbasis tiket.",
+      "scope": "flow",
+      "path": ".agents/skills/flow-task-completion",
+      "whenToUse": "Eksekusi task delivery end-to-end dari ticket sampai PR"
+    },
+    {
+      "name": "flow-test-scenario",
+      "description": "Membuat test scenario manual QA dari PRD/TRD suatu fitur, mengupload hasilnya ke Notion, lalu mengupdate tiket Jira dan GitHub issue dengan link Notion. Gunakan setelah implementasi selesai atau paralel dengan task Backend.",
+      "scope": "flow",
+      "path": ".agents/skills/flow-test-scenario",
+      "whenToUse": "Susun manual QA scenario dan publish ke Notion/Jira/GitHub"
+    },
+    {
+      "name": "flow-workflow-bootstrap",
+      "description": "Menjalankan bootstrap work item Jira dan GitHub dari dokumen PRD/TRD feature. Gunakan setelah flow-breakdown-feature selesai dan perlu pembuatan tiket delivery secara terstruktur.",
+      "scope": "flow",
+      "path": ".agents/skills/flow-workflow-bootstrap",
+      "whenToUse": "Bootstrap Notion, Jira, dan GitHub issue dari PRD/TRD"
+    },
+    {
+      "name": "meta-skill-hygiene",
+      "description": "Mengaudit, menyinkronkan, dan menjaga konsistensi metadata skill di repo ini. Gunakan saat ada perubahan skill, registry, wrapper, atau metadata agent.",
+      "scope": "meta",
+      "path": ".agents/skills/meta-skill-hygiene",
+      "whenToUse": "Audit dan hygiene metadata skill di repo ini"
+    },
+    {
+      "name": "skill-add-example",
+      "description": "Menambahkan contoh kode nyata ke .agents/examples/ agar bisa dijadikan referensi oleh skill lain. Gunakan saat ada pattern baru yang perlu dibakukan sebagai template atau referensi agent.",
+      "scope": "meta",
+      "path": ".agents/skills/skill-add-example",
+      "whenToUse": "Tambah example code yang reusable untuk skill lain"
+    },
+    {
+      "name": "skill-creator",
+      "description": "Membuat skill baru dari nol dengan struktur lengkap — SKILL.md, references, templates, openai.yaml, Claude wrapper, dan registrasi di manifest + AGENTS.md + CLAUDE.md. Gunakan saat user ingin menambahkan capability baru ke agent system.",
+      "scope": "meta",
+      "path": ".agents/skills/skill-creator",
+      "whenToUse": "Membuat atau memperbarui skill repo ini dengan format yang konsisten"
+    }
+  ]
+}

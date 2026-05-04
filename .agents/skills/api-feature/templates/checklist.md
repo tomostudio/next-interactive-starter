@@ -1,0 +1,21 @@
+# Checklist: API Feature
+
+- [ ] Baca `.agents/settings.json`
+- [ ] Baca `.agents/guides/ARCHITECTURE.md` (bagian apps/api)
+- [ ] Baca `references/context.md`
+- [ ] Baca guide masing-masing folder sebelum menulis kode
+- [ ] DTO dibuat di `application/dtos/`
+- [ ] Validator schema dibuat di `application/validators/`
+- [ ] Entity dibuat di `domain/entities/`
+- [ ] Repository interface dibuat di `domain/repositories/`
+- [ ] Use case(s) dibuat di `domain/use-cases/` (satu file per operasi)
+- [ ] Service dibuat di `application/services/`
+- [ ] Prisma repository dibuat di `infrastructure/database/`
+- [ ] Controller dibuat di `interfaces/http/controllers/`
+- [ ] Route dibuat di `interfaces/http/routes/`
+- [ ] Route didaftarkan di `interfaces/http/create-app.ts`
+- [ ] Tidak ada `any`
+- [ ] Tidak ada business logic di Controller
+- [ ] Tidak ada Prisma/HTTP di Use Case
+- [ ] `bun run build` pass
+- [ ] Semua file diakhiri newline (EOF)

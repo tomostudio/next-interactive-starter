@@ -1,0 +1,6 @@
+interface:
+  display_name: "MCP Setup"
+  short_description: "Setup MCP GitHub, Jira, dan Notion untuk repo ini"
+  default_prompt: "Use $ops-mcp-setup to configure the MCP servers required by this repository for GitHub, Jira, and Notion workflows."
+policy:
+  allow_implicit_invocation: true

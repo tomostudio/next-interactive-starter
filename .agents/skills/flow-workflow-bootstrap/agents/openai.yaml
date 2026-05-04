@@ -1,0 +1,6 @@
+interface:
+  display_name: "Workflow Bootstrap"
+  short_description: "Bootstrap Notion, Jira, dan GitHub issue dari PRD/TRD"
+  default_prompt: "Use $flow-workflow-bootstrap to create the Notion page, Jira tickets, and GitHub issues needed to deliver a documented feature."
+policy:
+  allow_implicit_invocation: true

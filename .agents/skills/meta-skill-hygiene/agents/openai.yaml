@@ -1,0 +1,6 @@
+interface:
+  display_name: "Meta Skill Hygiene"
+  short_description: "Audit, sync, dan validasi assets skill repo ini"
+  default_prompt: "Use $meta-skill-hygiene to audit, sync, and validate skill metadata assets for this repository."
+policy:
+  allow_implicit_invocation: true

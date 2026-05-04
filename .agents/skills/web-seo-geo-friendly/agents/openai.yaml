@@ -1,0 +1,6 @@
+interface:
+  display_name: "Web SEO + GEO"
+  short_description: "Optimasi SEO dan GEO untuk halaman publik"
+  default_prompt: "Use $web-seo-geo-friendly to optimize a public Next.js page for SEO metadata, structured data, sitemap, and robots coverage."
+policy:
+  allow_implicit_invocation: true

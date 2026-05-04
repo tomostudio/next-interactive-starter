@@ -1,0 +1,6 @@
+interface:
+  display_name: "API Contract"
+  short_description: "Susun contract API yang siap dipakai FE dan BE"
+  default_prompt: "Use $docs-api-contract to write or update a feature-level API contract from the PRD, TRD, or design context."
+policy:
+  allow_implicit_invocation: true

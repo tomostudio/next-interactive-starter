@@ -1,0 +1,6 @@
+interface:
+  display_name: "Skill Example"
+  short_description: "Tambahkan reusable example code untuk skill lain"
+  default_prompt: "Use $skill-add-example to add a reusable code example under .agents/examples and wire it into the relevant skill references."
+policy:
+  allow_implicit_invocation: true

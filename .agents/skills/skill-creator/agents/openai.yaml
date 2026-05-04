@@ -1,0 +1,6 @@
+interface:
+  display_name: "Skill Creator"
+  short_description: "Buat atau perbarui skill repo ini"
+  default_prompt: "Use $skill-creator to create or update a repository skill with consistent SKILL.md, references, checklist, metadata, and wrappers."
+policy:
+  allow_implicit_invocation: true
