@@ -1,8 +1,8 @@
 // @ts-nocheck
 import { m } from "framer-motion"
 import { fade } from "@/constants/transitions"
-import Caption from "../caption"
-import Line from "../line"
+import Caption from "./caption"
+import Line from "./line"
 
 export default function HeroSection({ sectionClassName, lineClassName }) {
   return (

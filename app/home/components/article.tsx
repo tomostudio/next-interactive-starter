@@ -1,7 +1,7 @@
 // @ts-nocheck
 import Container from "@/components/atoms/container"
-import Description from "../description"
-import Title from "../title"
+import Description from "./description"
+import Title from "./title"
 
 export default function Article() {
   return (
